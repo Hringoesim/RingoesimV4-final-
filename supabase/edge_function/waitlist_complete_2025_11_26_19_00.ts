@@ -9,11 +9,7 @@ const corsHeaders = {
 
 // Helper function to determine from email
 function getFromEmail() {
-  const domain = Deno.env.get('RESEND_DOMAIN');
-  if (domain) {
-    return `send@${domain}`;
-  }
-  return 'onboarding@resend.dev'; // Default fallback
+  return 'Info <info@ringoesim.com>';
 }
 
 serve(async (req) => {
