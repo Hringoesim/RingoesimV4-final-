@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, CheckCircle } from 'lucide-react';
+import { supabase } from "@/integrations/supabase/client";
 
 const countries = [
   { code: 'AF', name: '🇦🇫 Afghanistan' },
@@ -99,7 +100,11 @@ const countries = [
   { code: 'OTHER', name: '🌍 Other' },
 ];
 
-export function WaitlistForm() {
+interface WaitlistFormProps {
+  onSuccess?: () => void;
+}
+
+export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -120,6 +125,9 @@ export function WaitlistForm() {
       newErrors.email = 'Please enter a valid email address';
     }
 
+    // Name is optional in Index.tsx logic but required here originally. 
+    // I'll make it optional to match the simpler flow if desired, but keeping it required is fine too.
+    // Let's keep it required for better data quality if the form asks for it.
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
@@ -138,22 +146,52 @@ export function WaitlistForm() {
       return;
     }
 
+    // Spam check
+    if (formData.honeypot) {
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      // Simulate successful signup
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const { data, error } = await supabase.functions.invoke('waitlist_complete_2025_11_26_19_00', {
+        body: {
+          email: formData.email,
+          country: formData.country,
+          name: formData.name, // Pass name if the function supports it, otherwise it's just extra data
+          type: 'waitlist'
+        }
+      });
+
+      if (error) {
+        throw error;
+      }
       
       setIsSuccess(true);
       toast({
         title: "Welcome to the waitlist!",
-        description: "Thank you for joining! We'll notify you when Ringo launches.",
+        description: "Check your email for confirmation. We'll be in touch soon!",
       });
 
+      if (onSuccess) {
+        setTimeout(onSuccess, 2000);
+      }
+
     } catch (error: any) {
+      console.error('Waitlist submission error:', error);
+      
+      let errorMessage = "Please try again later or contact us directly at info@ringoesim.com";
+      if (error && typeof error === 'object' && 'message' in error) {
+        if (error.message.includes('Failed to fetch')) {
+          errorMessage = "Network error. Please check your connection and try again.";
+        } else if (error.message.includes('email')) {
+          errorMessage = "Email service error. Please try again or contact info@ringoesim.com";
+        }
+      }
+
       toast({
         title: "Something went wrong",
-        description: "Please try again later.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -175,7 +213,7 @@ export function WaitlistForm() {
   }
 
   return (
-    <div className="bg-white p-8 rounded-xl shadow-xl border border-gray-200 max-w-md mx-auto">
+    <div className="bg-white p-6 rounded-xl">
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Join the Waitlist</h3>
         <p className="text-gray-600">Be the first to experience Ringo when we launch</p>

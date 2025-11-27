@@ -11,6 +11,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { WaitlistDialog } from "@/components/WaitlistDialog";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,7 @@ const Contact = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (field: string, value: string) => {
@@ -33,7 +35,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.fullName || !formData.email || !formData.inquiryType || !formData.subject || !formData.message) {
       toast({
         title: "Missing Information",
@@ -93,21 +95,22 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Navigation currentPage="contact" />
+      <Navigation currentPage="contact" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
+      <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
 
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-orange-500 to-pink-500 text-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center">
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="inline-flex items-center gap-2 text-orange-100 hover:text-white transition-colors mb-6"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Home
               </Link>
-              
+
               <h1 className="text-4xl sm:text-5xl font-bold mb-6">Get in Touch</h1>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Contact Us</h2>
               <p className="text-xl text-orange-100 max-w-3xl mx-auto">
@@ -119,123 +122,127 @@ const Contact = () => {
 
         {/* Contact Form Section */}
         <section className="py-20 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid lg:grid-cols-3 gap-12">
               {/* Contact Form */}
-              <Card className="shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-gray-900">Send us a message</CardTitle>
-                  <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
-                </CardHeader>
-                <CardContent>
-                  {isSuccess ? (
-                    <div className="text-center py-8">
-                      <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-                      <p className="text-gray-600">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      {/* Full Name */}
-                      <div className="space-y-2">
-                        <Label htmlFor="fullName">Full Name *</Label>
-                        <Input
-                          id="fullName"
-                          type="text"
-                          value={formData.fullName}
-                          onChange={(e) => handleInputChange('fullName', e.target.value)}
-                          placeholder="Enter your full name"
-                          required
-                        />
+              <div className="lg:col-span-2">
+                <Card className="shadow-lg h-full">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-gray-900">Send us a message</CardTitle>
+                    <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
+                  </CardHeader>
+                  <CardContent>
+                    {isSuccess ? (
+                      <div className="text-center py-8">
+                        <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+                        <p className="text-gray-600">Thank you for contacting us. We'll get back to you within 24 hours.</p>
                       </div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          {/* Full Name */}
+                          <div className="space-y-2">
+                            <Label htmlFor="fullName">Full Name *</Label>
+                            <Input
+                              id="fullName"
+                              type="text"
+                              value={formData.fullName}
+                              onChange={(e) => handleInputChange('fullName', e.target.value)}
+                              placeholder="Enter your full name"
+                              required
+                            />
+                          </div>
 
-                      {/* Email */}
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          placeholder="Enter your email address"
-                          required
-                        />
-                      </div>
+                          {/* Email */}
+                          <div className="space-y-2">
+                            <Label htmlFor="email">Email Address *</Label>
+                            <Input
+                              id="email"
+                              type="email"
+                              value={formData.email}
+                              onChange={(e) => handleInputChange('email', e.target.value)}
+                              placeholder="Enter your email address"
+                              required
+                            />
+                          </div>
+                        </div>
 
-                      {/* Inquiry Type */}
-                      <div className="space-y-2">
-                        <Label htmlFor="inquiryType">Inquiry Type *</Label>
-                        <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange('inquiryType', value)}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select inquiry type" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="investor">💼 Investor</SelectItem>
-                            <SelectItem value="partnership">🤝 Partner</SelectItem>
-                            <SelectItem value="question">❓ I have a question</SelectItem>
-                            <SelectItem value="technical">🔧 Technical Support</SelectItem>
-                            <SelectItem value="media">📰 Media & Press</SelectItem>
-                            <SelectItem value="other">📝 Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                        {/* Inquiry Type */}
+                        <div className="space-y-2">
+                          <Label htmlFor="inquiryType">Inquiry Type *</Label>
+                          <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange('inquiryType', value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select inquiry type" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="investor">💼 Investor</SelectItem>
+                              <SelectItem value="partnership">🤝 Partner</SelectItem>
+                              <SelectItem value="question">❓ I have a question</SelectItem>
+                              <SelectItem value="technical">🔧 Technical Support</SelectItem>
+                              <SelectItem value="media">📰 Media & Press</SelectItem>
+                              <SelectItem value="other">📝 Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
 
-                      {/* Subject */}
-                      <div className="space-y-2">
-                        <Label htmlFor="subject">Subject *</Label>
-                        <Input
-                          id="subject"
-                          type="text"
-                          value={formData.subject}
-                          onChange={(e) => handleInputChange('subject', e.target.value)}
-                          placeholder="Enter the subject of your inquiry"
-                          required
-                        />
-                      </div>
+                        {/* Subject */}
+                        <div className="space-y-2">
+                          <Label htmlFor="subject">Subject *</Label>
+                          <Input
+                            id="subject"
+                            type="text"
+                            value={formData.subject}
+                            onChange={(e) => handleInputChange('subject', e.target.value)}
+                            placeholder="Enter the subject of your inquiry"
+                            required
+                          />
+                        </div>
 
-                      {/* Message */}
-                      <div className="space-y-2">
-                        <Label htmlFor="message">Message *</Label>
-                        <Textarea
-                          id="message"
-                          value={formData.message}
-                          onChange={(e) => handleInputChange('message', e.target.value)}
-                          placeholder="Tell us more about your inquiry..."
-                          rows={5}
-                          required
-                        />
-                      </div>
+                        {/* Message */}
+                        <div className="space-y-2">
+                          <Label htmlFor="message">Message *</Label>
+                          <Textarea
+                            id="message"
+                            value={formData.message}
+                            onChange={(e) => handleInputChange('message', e.target.value)}
+                            placeholder="Tell us more about your inquiry..."
+                            rows={6}
+                            required
+                          />
+                        </div>
 
-                      {/* Submit Button */}
-                      <Button 
-                        type="submit" 
-                        className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold py-3"
-                        disabled={isLoading}
-                      >
-                        {isLoading ? (
-                          <>
-                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                            Sending...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="h-4 w-4 mr-2" />
-                            Send Message
-                          </>
-                        )}
-                      </Button>
+                        {/* Submit Button */}
+                        <Button
+                          type="submit"
+                          className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold py-3"
+                          disabled={isLoading}
+                        >
+                          {isLoading ? (
+                            <>
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              <Send className="h-4 w-4 mr-2" />
+                              Send Message
+                            </>
+                          )}
+                        </Button>
 
-                      {/* Privacy Notice */}
-                      <p className="text-xs text-gray-500 text-center">
-                        By sending this message, you agree to our privacy policy. We'll only use your information to respond to your inquiry.
-                      </p>
-                    </form>
-                  )}
-                </CardContent>
-              </Card>
+                        {/* Privacy Notice */}
+                        <p className="text-xs text-gray-500 text-center">
+                          By sending this message, you agree to our privacy policy. We'll only use your information to respond to your inquiry.
+                        </p>
+                      </form>
+                    )}
+                  </CardContent>
+                </Card>
+              </div>
 
               {/* Contact Information */}
-              <div className="space-y-8">
+              <div className="space-y-8 lg:col-span-1">
                 {/* Email Support */}
                 <Card>
                   <CardHeader>
@@ -247,8 +254,8 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      <a 
-                        href="mailto:info@ringoesim.com" 
+                      <a
+                        href="mailto:info@ringoesim.com"
                         className="text-orange-500 hover:text-orange-600 font-medium"
                       >
                         info@ringoesim.com
@@ -272,9 +279,9 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      <a 
-                        href="https://www.linkedin.com/company/ringoesim/?viewAsMember=true" 
-                        target="_blank" 
+                      <a
+                        href="https://www.linkedin.com/company/ringoesim/?viewAsMember=true"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-700 font-medium"
                       >
@@ -329,11 +336,12 @@ const Contact = () => {
                   <p className="text-orange-100">Be among the first to experience Ringo's global connectivity</p>
                 </CardHeader>
                 <CardContent>
-                  <Link to="/">
-                    <Button className="bg-white text-orange-600 hover:bg-orange-50 font-semibold">
-                      Join Waitlist
-                    </Button>
-                  </Link>
+                  <Button
+                    className="bg-white text-orange-600 hover:bg-orange-50 font-semibold"
+                    onClick={() => setIsWaitlistOpen(true)}
+                  >
+                    Join Waitlist
+                  </Button>
                 </CardContent>
               </Card>
 
