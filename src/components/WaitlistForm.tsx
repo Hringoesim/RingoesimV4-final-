@@ -189,18 +189,45 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
 
     } catch (error: any) {
       console.error('Waitlist submission error:', error);
+      console.error('Full error details:', JSON.stringify(error, null, 2));
 
+      let errorTitle = "Something went wrong";
       let errorMessage = "Please try again later or contact us directly at info@ringoesim.com";
-      if (error && typeof error === 'object' && 'message' in error) {
-        if (error.message.includes('Failed to fetch')) {
-          errorMessage = "Network error. Please check your connection and try again.";
-        } else if (error.message.includes('email')) {
-          errorMessage = "Email service error. Please try again or contact info@ringoesim.com";
+
+      // Check if there's a specific error message from the backend
+      if (error && typeof error === 'object') {
+        // Supabase function errors often have a context property
+        if (error.context?.body) {
+          try {
+            const errorBody = typeof error.context.body === 'string'
+              ? JSON.parse(error.context.body)
+              : error.context.body;
+
+            if (errorBody.error) {
+              errorMessage = errorBody.error;
+              if (errorBody.details) {
+                errorMessage += `: ${errorBody.details}`;
+              }
+            }
+          } catch (e) {
+            console.error('Error parsing error body:', e);
+          }
+        }
+
+        // Check for message property
+        if ('message' in error && error.message) {
+          if (error.message.includes('Failed to fetch')) {
+            errorMessage = "Network error. Please check your connection and try again.";
+          } else if (error.message.includes('FunctionsRelayError') || error.message.includes('FunctionsHttpError')) {
+            errorMessage = `Server error: ${error.message}. Please contact support.`;
+          } else if (!errorMessage.includes('Server error')) {
+            errorMessage = error.message;
+          }
         }
       }
 
       toast({
-        title: "Something went wrong",
+        title: errorTitle,
         description: errorMessage,
         variant: "destructive",
       });

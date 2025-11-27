@@ -93,9 +93,47 @@ const Contact = () => {
 
     } catch (error) {
       console.error('Contact form error:', error);
+      console.error('Full error details:', JSON.stringify(error, null, 2));
+
+      let errorTitle = "Something went wrong";
+      let errorMessage = "Please try again or contact us directly at info@ringoesim.com";
+
+      // Check if there's a specific error message from the backend
+      if (error && typeof error === 'object') {
+        // Supabase function errors often have a context property
+        if ('context' in error && error.context && typeof error.context === 'object' && 'body' in error.context) {
+          try {
+            const errorBody = typeof error.context.body === 'string'
+              ? JSON.parse(error.context.body)
+              : error.context.body;
+
+            if (errorBody && typeof errorBody === 'object' && 'error' in errorBody) {
+              errorMessage = String(errorBody.error);
+              if ('details' in errorBody && errorBody.details) {
+                errorMessage += `: ${errorBody.details}`;
+              }
+            }
+          } catch (e) {
+            console.error('Error parsing error body:', e);
+          }
+        }
+
+        // Check for message property
+        if ('message' in error && error.message) {
+          const msg = String(error.message);
+          if (msg.includes('Failed to fetch')) {
+            errorMessage = "Network error. Please check your connection and try again.";
+          } else if (msg.includes('FunctionsRelayError') || msg.includes('FunctionsHttpError')) {
+            errorMessage = `Server error: ${msg}. Please contact support.`;
+          } else if (!errorMessage.includes('Server error')) {
+            errorMessage = msg;
+          }
+        }
+      }
+
       toast({
-        title: "Something went wrong",
-        description: "Please try again or contact us directly at info@ringoesim.com",
+        title: errorTitle,
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
