@@ -106,7 +106,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: getFromEmail(),
-        to: 'info@ringoesim.com',
+        to: 'hippolyte@ringoesim.com',
         subject: `Contact Form: ${subject}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">

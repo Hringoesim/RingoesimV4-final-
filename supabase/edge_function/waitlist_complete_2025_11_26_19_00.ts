@@ -189,7 +189,7 @@ Questions? Contact us at info@ringoesim.com`
       },
       body: JSON.stringify({
         from: getFromEmail(),
-        to: 'info@ringoesim.com',
+        to: 'hippolyte@ringoesim.com',
         subject: `New Waitlist Signup: ${email}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
