@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://ringoesim.com/sitemap.xml
+Sitemap: https://www.ringoesim.com/sitemap.xml
