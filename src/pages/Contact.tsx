@@ -64,10 +64,20 @@ const Contact = () => {
       }
 
       setIsSuccess(true);
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-      });
+
+      // Check email status
+      if (data?.email_status?.user_auto_reply === 'failed') {
+        toast({
+          title: "Message Sent",
+          description: "We received your message, but couldn't send the confirmation email. We'll still get back to you!",
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+        });
+      }
 
       // Reset form after 3 seconds
       setTimeout(() => {

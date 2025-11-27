@@ -24,7 +24,7 @@ serve(async (req) => {
 
   try {
     console.log('Complete waitlist signup function called');
-    
+
     // Parse request body
     const { email, country, type } = await req.json()
     console.log('Request data:', { email, country, type });
@@ -34,9 +34,9 @@ serve(async (req) => {
       console.error('Missing required fields:', { email: !!email, country: !!country });
       return new Response(
         JSON.stringify({ error: 'Email and country are required' }),
-        { 
-          status: 400, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       )
     }
@@ -47,9 +47,9 @@ serve(async (req) => {
       console.error('Invalid email format:', email);
       return new Response(
         JSON.stringify({ error: 'Invalid email format' }),
-        { 
-          status: 400, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       )
     }
@@ -78,9 +78,9 @@ serve(async (req) => {
       if (dbError.code === '23505') { // Unique constraint violation
         return new Response(
           JSON.stringify({ error: 'Email already registered on waitlist' }),
-          { 
-            status: 409, 
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          {
+            status: 409,
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
           }
         )
       }
@@ -95,9 +95,9 @@ serve(async (req) => {
       console.error('RESEND_API_KEY not found in environment');
       return new Response(
         JSON.stringify({ error: 'Email service configuration error' }),
-        { 
-          status: 500, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       )
     }
@@ -180,7 +180,7 @@ Questions? Contact us at info@ringoesim.com`
 
     // Send notification email to admin
     console.log('Sending notification email to admin...');
-    
+
     const adminEmailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -229,30 +229,34 @@ This is an automated notification from the Ringo waitlist system.`
       console.log('Admin email sent successfully:', adminEmailResult.id);
     }
 
-    // Return success response
+    // Return success response with email status
     return new Response(
-      JSON.stringify({ 
-        success: true, 
+      JSON.stringify({
+        success: true,
         message: 'Successfully joined waitlist',
-        database_id: dbData[0]?.id
+        database_id: dbData[0]?.id,
+        email_status: {
+          user_email: userEmailResponse.ok ? 'sent' : 'failed',
+          admin_email: adminEmailResponse.ok ? 'sent' : 'failed'
+        }
       }),
-      { 
-        status: 200, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      {
+        status: 200,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       }
     )
 
   } catch (error) {
     console.error('Waitlist signup error:', error);
-    
+
     return new Response(
-      JSON.stringify({ 
+      JSON.stringify({
         error: 'Failed to process waitlist signup',
-        details: error.message 
+        details: error.message
       }),
-      { 
-        status: 500, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       }
     )
   }

@@ -24,7 +24,7 @@ serve(async (req) => {
 
   try {
     console.log('Complete contact form function called');
-    
+
     // Parse request body
     const { fullName, email, inquiryType, subject, message, type } = await req.json()
     console.log('Request data:', { fullName, email, inquiryType, subject, type });
@@ -34,9 +34,9 @@ serve(async (req) => {
       console.error('Missing required fields');
       return new Response(
         JSON.stringify({ error: 'All fields are required' }),
-        { 
-          status: 400, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       )
     }
@@ -47,9 +47,9 @@ serve(async (req) => {
       console.error('Invalid email format:', email);
       return new Response(
         JSON.stringify({ error: 'Invalid email format' }),
-        { 
-          status: 400, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       )
     }
@@ -88,9 +88,9 @@ serve(async (req) => {
       console.error('RESEND_API_KEY not found in environment');
       return new Response(
         JSON.stringify({ error: 'Email service configuration error' }),
-        { 
-          status: 500, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       )
     }
@@ -160,7 +160,7 @@ Action Required: Please respond to ${email} within 24 hours.`
 
     // Send auto-reply confirmation to user
     console.log('Sending auto-reply to user...');
-    
+
     const userEmailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -232,30 +232,34 @@ Need immediate assistance? Contact us at info@ringoesim.com`
       console.log('User auto-reply sent successfully:', userEmailResult.id);
     }
 
-    // Return success response
+    // Return success response with email status
     return new Response(
-      JSON.stringify({ 
-        success: true, 
+      JSON.stringify({
+        success: true,
         message: 'Contact form submitted successfully',
-        database_id: dbData[0]?.id
+        database_id: dbData[0]?.id,
+        email_status: {
+          admin_email: adminEmailResponse.ok ? 'sent' : 'failed',
+          user_auto_reply: userEmailResponse.ok ? 'sent' : 'failed'
+        }
       }),
-      { 
-        status: 200, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      {
+        status: 200,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       }
     )
 
   } catch (error) {
     console.error('Contact form error:', error);
-    
+
     return new Response(
-      JSON.stringify({ 
+      JSON.stringify({
         error: 'Failed to process contact form',
-        details: error.message 
+        details: error.message
       }),
-      { 
-        status: 500, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       }
     )
   }

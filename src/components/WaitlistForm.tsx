@@ -166,12 +166,22 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
       if (error) {
         throw error;
       }
-      
+
+      // Check email status
+      if (data?.email_status?.user_email === 'failed') {
+        toast({
+          title: "Joined Waitlist",
+          description: "You've been added to the list, but we couldn't send the confirmation email. Please check your spam folder or contact us if needed.",
+          variant: "default", // Or "warning" if available, but default is safer
+        });
+      } else {
+        toast({
+          title: "Welcome to the waitlist!",
+          description: "Check your email for confirmation. We'll be in touch soon!",
+        });
+      }
+
       setIsSuccess(true);
-      toast({
-        title: "Welcome to the waitlist!",
-        description: "Check your email for confirmation. We'll be in touch soon!",
-      });
 
       if (onSuccess) {
         setTimeout(onSuccess, 2000);
@@ -179,7 +189,7 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
 
     } catch (error: any) {
       console.error('Waitlist submission error:', error);
-      
+
       let errorMessage = "Please try again later or contact us directly at info@ringoesim.com";
       if (error && typeof error === 'object' && 'message' in error) {
         if (error.message.includes('Failed to fetch')) {
@@ -205,7 +215,7 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         <CheckCircle className="h-12 w-12 text-green-600 mx-auto" />
         <h3 className="text-lg font-semibold text-green-800">You're on the list!</h3>
         <p className="text-green-700">
-          We've sent a confirmation email to <strong>{formData.email}</strong>. 
+          We've sent a confirmation email to <strong>{formData.email}</strong>.
           You'll be among the first to know when Ringo launches.
         </p>
       </div>
@@ -280,8 +290,8 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
           )}
         </div>
 
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold py-6 text-lg"
           disabled={isLoading}
         >
