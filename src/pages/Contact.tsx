@@ -393,23 +393,7 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              {/* Quick Answers */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <HelpCircle className="h-6 w-6 text-blue-500 mr-2" />
-                    Quick Answers
-                  </CardTitle>
-                  <p className="text-gray-600">Check our FAQ section for instant answers to common questions</p>
-                </CardHeader>
-                <CardContent>
-                  <Link to="/faq">
-                    <Button variant="outline" className="font-semibold">
-                      Browse FAQ
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+
             </div>
           </div>
         </section>

@@ -14,13 +14,13 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
-              One Number. One Plan. Everywhere.
+              Stay connected globally using your existing phone number.
             </p>
             <p className="text-gray-400 text-sm">
               Ringo lets you keep your existing phone number and route calls over data. One global plan, local-quality calls, and no surprise roaming bills.
             </p>
           </div>
-          
+
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -32,15 +32,16 @@ const Footer: React.FC = () => {
               </a></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               <li><a href="mailto:info@ringoesim.com" className="hover:text-white transition-colors">info@ringoesim.com</a></li>
+              <li><Link to="/device-compatibility" className="hover:text-white transition-colors">Check Compatibility</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -49,7 +50,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
           <p>&copy; 2025 Ringo. All rights reserved.</p>
         </div>
