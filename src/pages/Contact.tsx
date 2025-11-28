@@ -360,7 +360,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">For general questions</h4>
-                        <p className="text-gray-600">Check our FAQ page first</p>
+                        <p className="text-gray-600">Check our <Link to="/terms" className="text-orange-500 hover:underline">Terms of Service</Link></p>
                       </div>
                     </div>
                   </CardContent>
