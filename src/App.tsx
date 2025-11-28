@@ -3,19 +3,17 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
-
 import Index from "./pages/Index";
-const HowItWorks = lazy(() => import("./pages/HowItWorks"));
-const Pricing = lazy(() => import("./pages/Pricing"));
-const UseCases = lazy(() => import("./pages/UseCases"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Career = lazy(() => import("./pages/Career"));
-const Login = lazy(() => import("./pages/Login"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const Terms = lazy(() => import("./pages/Terms"));
-const DeviceCompatibility = lazy(() => import("./pages/DeviceCompatibility"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+import HowItWorks from "./pages/HowItWorks";
+import Pricing from "./pages/Pricing";
+import UseCases from "./pages/UseCases";
+import Contact from "./pages/Contact";
+import Career from "./pages/Career";
+import Login from "./pages/Login";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import DeviceCompatibility from "./pages/DeviceCompatibility";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -25,22 +23,20 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/use-cases" element={<UseCases />} />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/use-cases" element={<UseCases />} />
 
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/device-compatibility" element={<DeviceCompatibility />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/device-compatibility" element={<DeviceCompatibility />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
