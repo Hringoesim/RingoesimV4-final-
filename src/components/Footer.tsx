@@ -42,8 +42,8 @@ const Footer: React.FC = () => {
               <Link to="/device-compatibility" className="block text-sm text-gray-400 hover:text-white transition-colors">
                 Device Compatibility
               </Link>
-              <Link to="/contact" className="block text-sm text-gray-400 hover:text-white transition-colors">
-                Contact
+              <Link to="/career" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                Careers
               </Link>
             </div>
           </div>
@@ -52,9 +52,9 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold text-white">Support</h4>
             <div className="space-y-2">
-              <a href="mailto:info@ringoesim.com" className="block text-sm text-gray-400 hover:text-white transition-colors">
-                Email Support
-              </a>
+              <Link to="/contact" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                Contact
+              </Link>
               <Link to="/device-compatibility" className="block text-sm text-gray-400 hover:text-white transition-colors">
                 Check Compatibility
               </Link>

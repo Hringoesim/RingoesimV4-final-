@@ -13,7 +13,7 @@ const Privacy = () => {
             <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-sunset">Ringo</span>
             </Link>
-            
+
             <div className="hidden md:flex md:items-center md:space-x-4">
               <Link to="/">
                 <Button className="btn-sunset">Join Waitlist</Button>
@@ -41,7 +41,7 @@ const Privacy = () => {
                 <h1 className="text-4xl font-bold">Privacy Policy</h1>
               </div>
               <p className="text-muted-foreground">
-                Last updated: January 16, 2025
+                Last updated: November 28, 2025
               </p>
             </div>
 
@@ -49,8 +49,8 @@ const Privacy = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  At Ringo ("we," "our," or "us"), we are committed to protecting your privacy and personal information. 
-                  This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use 
+                  At Ringo ("we," "our," or "us"), we are committed to protecting your privacy and personal information.
+                  This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use
                   our eSIM services and related applications.
                 </p>
               </section>
@@ -67,7 +67,7 @@ const Privacy = () => {
                       <li>Account credentials and preferences</li>
                     </ul>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Usage Information</h3>
                     <ul className="list-disc list-inside text-muted-foreground space-y-1">
@@ -108,8 +108,8 @@ const Privacy = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">5. Data Security</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  We implement industry-standard security measures to protect your information, including encryption, 
-                  secure data transmission, and regular security audits. However, no method of transmission over the 
+                  We implement industry-standard security measures to protect your information, including encryption,
+                  secure data transmission, and regular security audits. However, no method of transmission over the
                   internet is 100% secure, and we cannot guarantee absolute security.
                 </p>
               </section>
@@ -132,8 +132,8 @@ const Privacy = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">7. International Transfers</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Your information may be transferred to and processed in countries other than your own. 
-                  We ensure appropriate safeguards are in place to protect your information in accordance 
+                  Your information may be transferred to and processed in countries other than your own.
+                  We ensure appropriate safeguards are in place to protect your information in accordance
                   with applicable data protection laws.
                 </p>
               </section>
@@ -141,7 +141,7 @@ const Privacy = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">8. Email Data Retention</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Legal and privacy-related emails sent to us are deleted instantly upon receipt. 
+                  Legal and privacy-related emails sent to us are deleted instantly upon receipt.
                   We do not retain copies of such communications for any purpose.
                 </p>
               </section>
@@ -149,7 +149,7 @@ const Privacy = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">9. Changes to This Policy</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  We may update this Privacy Policy from time to time. We will notify you of any material 
+                  We may update this Privacy Policy from time to time. We will notify you of any material
                   changes by posting the new policy on our website and updating the "Last updated" date.
                 </p>
               </section>
