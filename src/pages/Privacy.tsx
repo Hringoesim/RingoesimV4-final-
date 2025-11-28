@@ -47,121 +47,260 @@ const Privacy = () => {
 
             <div className="prose prose-lg max-w-none space-y-8">
               <section>
-                <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  At Ringo ("we," "our," or "us"), we are committed to protecting your privacy and personal information.
-                  This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use
-                  our eSIM services and related applications.
+                  At Ringo eSIM ("Ringo", "we", "our"), we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, store, use, and safeguard your data when you visit our website, join our waitlist, submit a contact form, or send a job application.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  Ringo is currently operated by an individual founder. A registered company will be added once incorporated.
                 </p>
               </section>
 
               <section>
+                <h2 className="text-2xl font-bold mb-4">1. Data Controller</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  The individual responsible for your personal data is:
+                </p>
+                <div className="bg-muted p-4 rounded-lg mt-4">
+                  <p className="font-medium">Hippolyte Van Marcke</p>
+                  <p className="text-muted-foreground">Operating as Ringo eSIM</p>
+                  <p className="text-muted-foreground">Email: info@ringoesim.com</p>
+                </div>
+              </section>
+
+              <section>
                 <h2 className="text-2xl font-bold mb-4">2. Information We Collect</h2>
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Personal Information</h3>
+                    <h3 className="text-xl font-semibold mb-2">2.1. Waitlist Signup</h3>
+                    <p className="text-muted-foreground mb-2">When you join the waitlist, we collect:</p>
                     <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                      <li>Email address and contact information</li>
-                      <li>Phone number for service activation</li>
-                      <li>Payment information (processed securely by third-party providers)</li>
-                      <li>Account credentials and preferences</li>
+                      <li>Full name (required)</li>
+                      <li>Email address (required)</li>
+                      <li>Timestamp of signup</li>
+                      <li>Country (optional)</li>
                     </ul>
+                    <p className="text-muted-foreground mt-2 text-sm italic">
+                      Stored securely in Supabase. We do not store IP addresses.
+                    </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Usage Information</h3>
+                    <h3 className="text-xl font-semibold mb-2">2.2. Contact Form</h3>
+                    <p className="text-muted-foreground mb-2">When you submit a contact form, we collect:</p>
                     <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                      <li>Data usage statistics and connection logs</li>
-                      <li>Device information and network performance data</li>
-                      <li>Location data (only when necessary for service provision)</li>
-                      <li>App usage analytics and crash reports</li>
+                      <li>Full name (required)</li>
+                      <li>Email address (required)</li>
+                      <li>Your message</li>
+                      <li>Timestamp</li>
                     </ul>
+                    <p className="text-muted-foreground mt-2 text-sm italic">
+                      This information is processed via Resend (email delivery provider), and may be temporarily stored in our inbox for follow-up. Resend is used only for contact form and job application emails.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">2.3. Careers / Job Applications</h3>
+                    <p className="text-muted-foreground mb-2">If you email a CV or job application to info@ringoesim.com, we may collect:</p>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Full name</li>
+                      <li>Email address</li>
+                      <li>CV, résumé, cover letter, portfolio</li>
+                      <li>Employment/education history</li>
+                      <li>Any other information voluntarily provided</li>
+                    </ul>
+                    <p className="text-muted-foreground mt-2 text-sm italic">
+                      Stored in our email system (via Resend delivery → inbox).
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">2.4. Analytics (Google Analytics)</h3>
+                    <p className="text-muted-foreground mb-2">We use Google Analytics (GA4) to understand website usage patterns. Google Analytics may collect:</p>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Browser type</li>
+                      <li>Device type</li>
+                      <li>Pages viewed</li>
+                      <li>Time spent on the site</li>
+                      <li>General interaction data</li>
+                    </ul>
+                    <p className="text-muted-foreground mt-2 text-sm italic">
+                      IP addresses are anonymized automatically by GA4. No advertising or remarketing features are enabled.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">2.5. Technical Data Processed by Cloudflare</h3>
+                    <p className="text-muted-foreground mb-2">Our domain and DNS are managed through Cloudflare. Cloudflare may temporarily process:</p>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>IP addresses (for security filtering)</li>
+                      <li>DNS requests</li>
+                      <li>Traffic routing information</li>
+                      <li>Basic security data (e.g., bot detection, DDoS protection)</li>
+                    </ul>
+                    <p className="text-muted-foreground mt-2 text-sm italic">
+                      This happens automatically as part of Cloudflare’s infrastructure. We do not store IP addresses ourselves. Cloudflare processes this data solely for site security, content delivery (CDN), and performance optimization. Cloudflare is a GDPR-compliant service provider.
+                    </p>
                   </div>
                 </div>
               </section>
 
               <section>
                 <h2 className="text-2xl font-bold mb-4">3. How We Use Your Information</h2>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">Waitlist</h3>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Add you to our launch list</li>
+                      <li>Notify you about updates</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">Contact Form</h3>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Respond to your inquiry</li>
+                      <li>Provide support</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">Careers</h3>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Review your application</li>
+                      <li>Contact you regarding opportunities</li>
+                      <li>Maintain a short-term talent pool (optional)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">Analytics</h3>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Improve website performance and design</li>
+                      <li>Understand visitor behavior</li>
+                      <li>Detect technical issues</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">Cloudflare</h3>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Protect the website from malicious traffic</li>
+                      <li>Improve speed and reliability</li>
+                    </ul>
+                  </div>
+                  <p className="text-muted-foreground font-medium mt-4">We never sell personal information.</p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">4. Legal Basis for Processing (GDPR)</h2>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">We rely on Consent for:</h3>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Waitlist signup</li>
+                      <li>Contact form</li>
+                      <li>Job applications</li>
+                      <li>Analytics cookies (if enabled)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">We rely on Legitimate Interest for:</h3>
+                    <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                      <li>Responding to messages</li>
+                      <li>Reviewing applications</li>
+                      <li>Ensuring website security through Cloudflare</li>
+                      <li>Improving website functionality</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">5. Data Sharing</h2>
+                <p className="text-muted-foreground mb-4">We only share data with essential third-party providers:</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                  <li>Provide and maintain our eSIM connectivity services</li>
-                  <li>Process payments and manage your account</li>
-                  <li>Send service-related communications and updates</li>
-                  <li>Improve our services and develop new features</li>
-                  <li>Ensure network security and prevent fraud</li>
-                  <li>Comply with legal obligations and regulatory requirements</li>
+                  <li><strong>Supabase:</strong> For storing waitlist and form data securely.</li>
+                  <li><strong>Resend:</strong> For delivering contact form submissions and job applications.</li>
+                  <li><strong>Google Analytics:</strong> For basic, anonymized analytics.</li>
+                  <li><strong>Cloudflare:</strong> For DNS, security, caching, and performance enhancement.</li>
                 </ul>
+                <p className="text-muted-foreground mt-4">
+                  None of these services sell your data. We do not use advertising trackers or social media pixels.
+                </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">4. Information Sharing</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:
-                </p>
+                <h2 className="text-2xl font-bold mb-4">6. Data Retention</h2>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                  <li>With network partners to provide connectivity services</li>
-                  <li>With payment processors for transaction processing</li>
-                  <li>When required by law or to protect our rights</li>
-                  <li>With your explicit consent</li>
+                  <li><strong>Waitlist:</strong> until Ringo launches or until deletion is requested</li>
+                  <li><strong>Contact form:</strong> stored for up to 12 months</li>
+                  <li><strong>Job applications:</strong> stored for up to 6 months</li>
+                  <li><strong>Analytics:</strong> per Google Analytics retention settings (typically 14 months)</li>
+                  <li><strong>Cloudflare logs:</strong> temporary and managed by Cloudflare’s internal policies</li>
                 </ul>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">5. Data Security</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  We implement industry-standard security measures to protect your information, including encryption,
-                  secure data transmission, and regular security audits. However, no method of transmission over the
-                  internet is 100% secure, and we cannot guarantee absolute security.
+                <p className="text-muted-foreground mt-4">
+                  You may request deletion at any time by emailing <a href="mailto:info@ringoesim.com" className="text-primary hover:underline">info@ringoesim.com</a>.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">6. Your Rights</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  Depending on your location, you may have the following rights regarding your personal information:
-                </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                  <li>Access and review your personal information</li>
-                  <li>Correct inaccurate or incomplete information</li>
-                  <li>Delete your personal information</li>
-                  <li>Restrict or object to processing</li>
-                  <li>Data portability</li>
-                  <li>Withdraw consent at any time</li>
+                <h2 className="text-2xl font-bold mb-4">7. Your Rights</h2>
+                <p className="text-muted-foreground mb-2">You may request:</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                  <li>Access to your data</li>
+                  <li>Correction</li>
+                  <li>Deletion</li>
+                  <li>Withdrawal of consent</li>
+                  <li>Restriction or objection</li>
+                  <li>A copy of your data (portability)</li>
                 </ul>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">7. International Transfers</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Your information may be transferred to and processed in countries other than your own.
-                  We ensure appropriate safeguards are in place to protect your information in accordance
-                  with applicable data protection laws.
+                <p className="text-muted-foreground mt-4">
+                  Email: <a href="mailto:info@ringoesim.com" className="text-primary hover:underline">info@ringoesim.com</a>
+                </p>
+                <p className="text-muted-foreground mt-2">
+                  If located in the EU, you may also file a complaint with your local Data Protection Authority.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">8. Email Data Retention</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Legal and privacy-related emails sent to us are deleted instantly upon receipt.
-                  We do not retain copies of such communications for any purpose.
+                <h2 className="text-2xl font-bold mb-4">8. Security</h2>
+                <p className="text-muted-foreground mb-2">We implement reasonable measures to protect your data, including:</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                  <li>HTTPS encryption</li>
+                  <li>Secure storage in Supabase</li>
+                  <li>Cloudflare security protection</li>
+                  <li>Limited access to personal data</li>
+                  <li>Use of reputable third-party providers</li>
+                </ul>
+                <p className="text-muted-foreground mt-2">
+                  No online system is 100% secure, but we strive to protect your information.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">9. Changes to This Policy</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  We may update this Privacy Policy from time to time. We will notify you of any material
-                  changes by posting the new policy on our website and updating the "Last updated" date.
+                <h2 className="text-2xl font-bold mb-4">9. Cookies</h2>
+                <p className="text-muted-foreground mb-2">We may use:</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                  <li><strong>Essential cookies:</strong> For website operation.</li>
+                  <li><strong>Analytics cookies (Google Analytics):</strong> Only active with user consent (via cookie banner if enabled).</li>
+                </ul>
+                <p className="text-muted-foreground mt-2">
+                  We do not use advertising, retargeting, or third-party tracking cookies.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">10. Contact Us</h2>
+                <h2 className="text-2xl font-bold mb-4">10. Changes to This Privacy Policy</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
+                  We may update this Privacy Policy periodically. The date at the top of this page reflects the most recent update.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">11. Contact Us</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  If you have questions about this Privacy Policy or your rights, contact:
                 </p>
                 <div className="bg-muted p-4 rounded-lg mt-4">
                   <p className="font-medium">Ringo Privacy Team</p>
-                  <p className="text-muted-foreground">Email: info@ringoesim.com</p>
+                  <p className="text-muted-foreground">📩 <a href="mailto:info@ringoesim.com" className="hover:text-primary transition-colors">info@ringoesim.com</a></p>
                 </div>
               </section>
             </div>
