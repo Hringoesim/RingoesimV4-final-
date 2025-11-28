@@ -99,6 +99,7 @@ serve(async (req) => {
       'partnership': 'Partnership Inquiry',
       'question': 'General Question',
       'technical': 'Technical Support',
+      'feature': 'Feature Request',
       'media': 'Media & Press',
       'other': 'Other Inquiry'
     };

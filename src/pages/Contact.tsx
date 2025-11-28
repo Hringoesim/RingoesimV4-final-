@@ -229,6 +229,7 @@ const Contact = () => {
                               <SelectItem value="question">❓ I have a question</SelectItem>
                               <SelectItem value="technical">🔧 Technical Support</SelectItem>
                               <SelectItem value="media">📰 Media & Press</SelectItem>
+                              <SelectItem value="feature">💡 Request a Feature</SelectItem>
                               <SelectItem value="other">📝 Other</SelectItem>
                             </SelectContent>
                           </Select>
