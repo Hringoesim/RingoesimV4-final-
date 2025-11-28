@@ -93,6 +93,18 @@ serve(async (req) => {
 
     console.log('Sending contact form email to admin...');
 
+    // Map inquiry types to readable subjects
+    const inquiryTypeLabels: Record<string, string> = {
+      'investor': 'Investor Inquiry',
+      'partnership': 'Partnership Inquiry',
+      'question': 'General Question',
+      'technical': 'Technical Support',
+      'media': 'Media & Press',
+      'other': 'Other Inquiry'
+    };
+
+    const emailSubject = inquiryTypeLabels[inquiryType] || `Inquiry: ${inquiryType}`;
+
     // Send contact form email to admin
     const adminEmailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -103,7 +115,7 @@ serve(async (req) => {
       body: JSON.stringify({
         from: getFromEmail(),
         to: 'hippolyte@ringoesim.com',
-        subject: `Contact Form [${inquiryType}]: ${subject}`,
+        subject: emailSubject,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <h2 style="color: #374151; margin-bottom: 20px;">New Contact Form Submission</h2>
