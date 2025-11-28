@@ -60,11 +60,18 @@
   <link rel="dns-prefetch" href="//supabase.co" />
   <link rel="dns-prefetch" href="//api.resend.com" />
 
-  <!-- ... (rest of head) ... -->
+  <!-- Accessibility -->
+  <meta name="color-scheme" content="light" />
 
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+</head>
 
-
+<body>
+  <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
-  </body>
+</body>
 
 </html>
