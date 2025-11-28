@@ -103,7 +103,7 @@ serve(async (req) => {
       body: JSON.stringify({
         from: getFromEmail(),
         to: 'hippolyte@ringoesim.com',
-        subject: `Contact Form: ${subject}`,
+        subject: `Contact Form [${inquiryType}]: ${subject}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <h2 style="color: #374151; margin-bottom: 20px;">New Contact Form Submission</h2>
