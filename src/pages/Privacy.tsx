@@ -3,9 +3,16 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import SEO from "@/components/SEO";
+
 const Privacy = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
+      <SEO
+        title="Privacy Policy - Ringo"
+        description="Read Ringo's privacy policy to understand how we collect, use, and protect your personal information."
+        canonical="/privacy"
+      />
       {/* Navigation */}
       <header className="border-b">
         <div className="container-max">

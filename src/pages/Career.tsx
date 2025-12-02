@@ -5,9 +5,16 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+import SEO from "@/components/SEO";
+
 const Career = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <SEO
+        title="Careers at Ringo - Join the Connectivity Revolution"
+        description="Join Ringo's mission to make global connectivity simple and affordable. View open positions and apply today."
+        canonical="/career"
+      />
       <Navigation currentPage="careers" />
 
       <main className="flex-1">
@@ -29,10 +36,10 @@ const Career = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Want to Join Our Mission?</h2>
               <p className="text-xl text-gray-600 mb-8">
-                We're building something revolutionary in the global connectivity space. 
+                We're building something revolutionary in the global connectivity space.
                 If you're passionate about technology, travel, and making a real impact, we'd love to hear from you.
               </p>
-              
+
               <Card className="max-w-2xl mx-auto">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -44,14 +51,14 @@ const Career = () => {
                   <p className="text-gray-600 text-lg">
                     Please send over your CV at <strong>info@ringoesim.com</strong>
                   </p>
-                  
-                  <Button 
+
+                  <Button
                     className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-8 py-6 text-lg"
                     onClick={() => window.location.href = 'mailto:info@ringoesim.com?subject=Career Opportunity - CV Submission&body=Hi Ringo team,%0D%0A%0D%0AI am interested in joining your mission and would like to submit my CV for consideration.%0D%0A%0D%0APlease find my CV attached.%0D%0A%0D%0ABest regards'}
                   >
                     Send Your CV
                   </Button>
-                  
+
                   <p className="text-sm text-gray-500">
                     Include your CV as an attachment and tell us why you want to join Ringo
                   </p>
@@ -128,8 +135,8 @@ const Career = () => {
             <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
               Join us in building the future of global connectivity. Send us your CV today.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-white text-orange-600 hover:bg-orange-50 font-semibold px-8 py-6 text-lg"
               onClick={() => window.location.href = 'mailto:info@ringoesim.com?subject=Career Opportunity - CV Submission&body=Hi Ringo team,%0D%0A%0D%0AI am interested in joining your mission and would like to submit my CV for consideration.%0D%0A%0D%0APlease find my CV attached.%0D%0A%0D%0ABest regards'}
             >

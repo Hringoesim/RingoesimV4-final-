@@ -141,268 +141,280 @@ const Contact = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navigation currentPage="contact" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
-      <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
+  import SEO from "@/components/SEO";
 
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-orange-500 to-pink-500 text-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center">
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-orange-100 hover:text-white transition-colors mb-6"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Link>
+  const Contact = () => {
+    // ... (existing state)
 
-              <h1 className="text-4xl sm:text-5xl font-bold mb-6">Get in Touch</h1>
-              <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Contact Us</h2>
-              <p className="text-xl text-orange-100 max-w-3xl mx-auto">
-                Have questions about Ringo? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
-              </p>
+    // ... (handleSubmit function)
+
+    return (
+      <div className="min-h-screen flex flex-col bg-white">
+        <SEO
+          title="Contact Ringo - 24/7 Global Support"
+          description="Have questions? Contact Ringo support for help with your eSIM, plans, or account. We're here to help you stay connected."
+          canonical="/contact"
+        />
+        <Navigation currentPage="contact" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
+        <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
+
+        <main className="flex-1">
+          {/* Hero Section */}
+          <section className="py-20 bg-gradient-to-br from-orange-500 to-pink-500 text-white">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center">
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-2 text-orange-100 hover:text-white transition-colors mb-6"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Home
+                </Link>
+
+                <h1 className="text-4xl sm:text-5xl font-bold mb-6">Get in Touch</h1>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Contact Us</h2>
+                <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+                  Have questions about Ringo? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Contact Form Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-12">
-              {/* Contact Form */}
-              <div className="lg:col-span-2">
-                <Card className="shadow-lg h-full">
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-gray-900">Send us a message</CardTitle>
-                    <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
-                  </CardHeader>
-                  <CardContent>
-                    {isSuccess ? (
-                      <div className="text-center py-8">
-                        <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-                        <p className="text-gray-600">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                      </div>
-                    ) : (
-                      <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid md:grid-cols-2 gap-6">
-                          {/* Full Name */}
+          {/* Contact Form Section */}
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="grid lg:grid-cols-3 gap-12">
+                {/* Contact Form */}
+                <div className="lg:col-span-2">
+                  <Card className="shadow-lg h-full">
+                    <CardHeader>
+                      <CardTitle className="text-2xl font-bold text-gray-900">Send us a message</CardTitle>
+                      <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
+                    </CardHeader>
+                    <CardContent>
+                      {isSuccess ? (
+                        <div className="text-center py-8">
+                          <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                          <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+                          <p className="text-gray-600">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                        </div>
+                      ) : (
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            {/* Full Name */}
+                            <div className="space-y-2">
+                              <Label htmlFor="fullName">Full Name *</Label>
+                              <Input
+                                id="fullName"
+                                type="text"
+                                value={formData.fullName}
+                                onChange={(e) => handleInputChange('fullName', e.target.value)}
+                                placeholder="Enter your full name"
+                                required
+                              />
+                            </div>
+
+                            {/* Email */}
+                            <div className="space-y-2">
+                              <Label htmlFor="email">Email Address *</Label>
+                              <Input
+                                id="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={(e) => handleInputChange('email', e.target.value)}
+                                placeholder="Enter your email address"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          {/* Inquiry Type */}
                           <div className="space-y-2">
-                            <Label htmlFor="fullName">Full Name *</Label>
+                            <Label htmlFor="inquiryType">Inquiry Type *</Label>
+                            <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange('inquiryType', value)}>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select inquiry type" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="investor">💼 Investor</SelectItem>
+                                <SelectItem value="partnership">🤝 Partner</SelectItem>
+                                <SelectItem value="question">❓ I have a question</SelectItem>
+                                <SelectItem value="technical">🔧 Technical Support</SelectItem>
+                                <SelectItem value="media">📰 Media & Press</SelectItem>
+                                <SelectItem value="feature">💡 Request a Feature</SelectItem>
+                                <SelectItem value="other">📝 Other</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+
+                          {/* Subject */}
+                          <div className="space-y-2">
+                            <Label htmlFor="subject">Subject *</Label>
                             <Input
-                              id="fullName"
+                              id="subject"
                               type="text"
-                              value={formData.fullName}
-                              onChange={(e) => handleInputChange('fullName', e.target.value)}
-                              placeholder="Enter your full name"
+                              value={formData.subject}
+                              onChange={(e) => handleInputChange('subject', e.target.value)}
+                              placeholder="Enter the subject of your inquiry"
                               required
                             />
                           </div>
 
-                          {/* Email */}
+                          {/* Message */}
                           <div className="space-y-2">
-                            <Label htmlFor="email">Email Address *</Label>
-                            <Input
-                              id="email"
-                              type="email"
-                              value={formData.email}
-                              onChange={(e) => handleInputChange('email', e.target.value)}
-                              placeholder="Enter your email address"
+                            <Label htmlFor="message">Message *</Label>
+                            <Textarea
+                              id="message"
+                              value={formData.message}
+                              onChange={(e) => handleInputChange('message', e.target.value)}
+                              placeholder="Tell us more about your inquiry..."
+                              rows={6}
                               required
                             />
                           </div>
-                        </div>
 
-                        {/* Inquiry Type */}
-                        <div className="space-y-2">
-                          <Label htmlFor="inquiryType">Inquiry Type *</Label>
-                          <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange('inquiryType', value)}>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select inquiry type" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="investor">💼 Investor</SelectItem>
-                              <SelectItem value="partnership">🤝 Partner</SelectItem>
-                              <SelectItem value="question">❓ I have a question</SelectItem>
-                              <SelectItem value="technical">🔧 Technical Support</SelectItem>
-                              <SelectItem value="media">📰 Media & Press</SelectItem>
-                              <SelectItem value="feature">💡 Request a Feature</SelectItem>
-                              <SelectItem value="other">📝 Other</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
+                          {/* Submit Button */}
+                          <Button
+                            type="submit"
+                            className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold py-3"
+                            disabled={isLoading}
+                          >
+                            {isLoading ? (
+                              <>
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                                Sending...
+                              </>
+                            ) : (
+                              <>
+                                <Send className="h-4 w-4 mr-2" />
+                                Send Message
+                              </>
+                            )}
+                          </Button>
 
-                        {/* Subject */}
-                        <div className="space-y-2">
-                          <Label htmlFor="subject">Subject *</Label>
-                          <Input
-                            id="subject"
-                            type="text"
-                            value={formData.subject}
-                            onChange={(e) => handleInputChange('subject', e.target.value)}
-                            placeholder="Enter the subject of your inquiry"
-                            required
-                          />
-                        </div>
+                          {/* Privacy Notice */}
+                          <p className="text-xs text-gray-500 text-center">
+                            By sending this message, you agree to our privacy policy. We'll only use your information to respond to your inquiry.
+                          </p>
+                        </form>
+                      )}
+                    </CardContent>
+                  </Card>
+                </div>
 
-                        {/* Message */}
-                        <div className="space-y-2">
-                          <Label htmlFor="message">Message *</Label>
-                          <Textarea
-                            id="message"
-                            value={formData.message}
-                            onChange={(e) => handleInputChange('message', e.target.value)}
-                            placeholder="Tell us more about your inquiry..."
-                            rows={6}
-                            required
-                          />
-                        </div>
-
-                        {/* Submit Button */}
-                        <Button
-                          type="submit"
-                          className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold py-3"
-                          disabled={isLoading}
+                {/* Contact Information */}
+                <div className="space-y-8 lg:col-span-1">
+                  {/* Email Support */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-lg">
+                        <Mail className="h-5 w-5 text-orange-500 mr-2" />
+                        Email Support
+                      </CardTitle>
+                      <p className="text-gray-600">Get help from our support team</p>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        <a
+                          href="mailto:info@ringoesim.com"
+                          className="text-orange-500 hover:text-orange-600 font-medium"
                         >
-                          {isLoading ? (
-                            <>
-                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                              Sending...
-                            </>
-                          ) : (
-                            <>
-                              <Send className="h-4 w-4 mr-2" />
-                              Send Message
-                            </>
-                          )}
-                        </Button>
-
-                        {/* Privacy Notice */}
-                        <p className="text-xs text-gray-500 text-center">
-                          By sending this message, you agree to our privacy policy. We'll only use your information to respond to your inquiry.
-                        </p>
-                      </form>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Contact Information */}
-              <div className="space-y-8 lg:col-span-1">
-                {/* Email Support */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-lg">
-                      <Mail className="h-5 w-5 text-orange-500 mr-2" />
-                      Email Support
-                    </CardTitle>
-                    <p className="text-gray-600">Get help from our support team</p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <a
-                        href="mailto:info@ringoesim.com"
-                        className="text-orange-500 hover:text-orange-600 font-medium"
-                      >
-                        info@ringoesim.com
-                      </a>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Clock className="h-4 w-4 mr-2" />
-                        Response time: Within 24 hours
+                          info@ringoesim.com
+                        </a>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Clock className="h-4 w-4 mr-2" />
+                          Response time: Within 24 hours
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
 
-                {/* LinkedIn */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-lg">
-                      <Linkedin className="h-5 w-5 text-blue-600 mr-2" />
-                      LinkedIn
-                    </CardTitle>
-                    <p className="text-gray-600">Connect with us professionally</p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <a
-                        href="https://www.linkedin.com/company/ringoesim/?viewAsMember=true"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-700 font-medium"
-                      >
-                        Follow us on LinkedIn
-                      </a>
-                      <p className="text-sm text-gray-600">Company updates and industry insights</p>
-                    </div>
-                  </CardContent>
-                </Card>
+                  {/* LinkedIn */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-lg">
+                        <Linkedin className="h-5 w-5 text-blue-600 mr-2" />
+                        LinkedIn
+                      </CardTitle>
+                      <p className="text-gray-600">Connect with us professionally</p>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        <a
+                          href="https://www.linkedin.com/company/ringoesim/?viewAsMember=true"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-700 font-medium"
+                        >
+                          Follow us on LinkedIn
+                        </a>
+                        <p className="text-sm text-gray-600">Company updates and industry insights</p>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-                {/* Inquiry Guidelines */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-lg">
-                      <HelpCircle className="h-5 w-5 text-green-500 mr-2" />
-                      Inquiry Guidelines
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4 text-sm">
-                      <div>
-                        <h4 className="font-semibold text-gray-900">For investors</h4>
-                        <p className="text-gray-600">Please include your investment focus and ticket size</p>
+                  {/* Inquiry Guidelines */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-lg">
+                        <HelpCircle className="h-5 w-5 text-green-500 mr-2" />
+                        Inquiry Guidelines
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4 text-sm">
+                        <div>
+                          <h4 className="font-semibold text-gray-900">For investors</h4>
+                          <p className="text-gray-600">Please include your investment focus and ticket size</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">For partnerships</h4>
+                          <p className="text-gray-600">Tell us about your company and how we can work together</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">For general questions</h4>
+                          <p className="text-gray-600">Check our <Link to="/terms" className="text-orange-500 hover:underline">Terms of Service</Link></p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">For partnerships</h4>
-                        <p className="text-gray-600">Tell us about your company and how we can work together</p>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">For general questions</h4>
-                        <p className="text-gray-600">Check our <Link to="/terms" className="text-orange-500 hover:underline">Terms of Service</Link></p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Call to Action Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Join Pilot Program */}
-              <Card className="bg-gradient-to-br from-orange-500 to-pink-500 text-white border-0">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <Users className="h-6 w-6 mr-2" />
-                    Join Our Pilot Program
-                  </CardTitle>
-                  <p className="text-orange-100">Be among the first to experience Ringo's global connectivity</p>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    className="bg-white text-orange-600 hover:bg-orange-50 font-semibold"
-                    onClick={() => setIsWaitlistOpen(true)}
-                  >
-                    Join Waitlist
-                  </Button>
-                </CardContent>
-              </Card>
+          {/* Call to Action Section */}
+          <section className="py-20 bg-white">
+            <div className="max-w-4xl mx-auto px-4">
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Join Pilot Program */}
+                <Card className="bg-gradient-to-br from-orange-500 to-pink-500 text-white border-0">
+                  <CardHeader>
+                    <CardTitle className="flex items-center text-xl">
+                      <Users className="h-6 w-6 mr-2" />
+                      Join Our Pilot Program
+                    </CardTitle>
+                    <p className="text-orange-100">Be among the first to experience Ringo's global connectivity</p>
+                  </CardHeader>
+                  <CardContent>
+                    <Button
+                      className="bg-white text-orange-600 hover:bg-orange-50 font-semibold"
+                      onClick={() => setIsWaitlistOpen(true)}
+                    >
+                      Join Waitlist
+                    </Button>
+                  </CardContent>
+                </Card>
 
 
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
 
-      <Footer />
-    </div>
-  );
-};
+        <Footer />
+      </div>
+    );
+  };
 
-export default Contact;
+  export default Contact;

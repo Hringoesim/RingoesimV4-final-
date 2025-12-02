@@ -9,6 +9,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
 
+import SEO from "@/components/SEO";
+
 const Index = () => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const { toast } = useToast();
@@ -21,6 +23,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <SEO
+        title="Ringo - One Number. One Plan. Everywhere."
+        description="Voice-enabled travel eSIM for digital nomads. Make calls, receive SMS, stay connected in 180+ countries. Keep your existing number."
+        canonical="/"
+      />
       <Navigation currentPage="home" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
       <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
 

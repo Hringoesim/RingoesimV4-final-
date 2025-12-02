@@ -5,9 +5,16 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Check, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import SEO from "@/components/SEO";
+
 const Pricing = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title="Ringo Pricing - Transparent Global eSIM Plans"
+        description="Simple, transparent pricing. Day passes from €3.50, monthly plans from €39.90. Unlimited data and voice calls. No hidden fees."
+        canonical="/pricing"
+      />
       {/* Navigation */}
       <header className="border-b">
         <div className="container-max">
@@ -15,7 +22,7 @@ const Pricing = () => {
             <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-sunset">Ringo</span>
             </Link>
-            
+
             <div className="hidden md:flex md:items-center md:space-x-8">
               <Link to="/how-it-works" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
                 How It Works
@@ -30,7 +37,7 @@ const Pricing = () => {
                 Contact
               </Link>
             </div>
-            
+
             <div className="hidden md:flex md:items-center md:space-x-4">
               <Link to="/login">
                 <Button variant="ghost">Login</Button>
@@ -64,7 +71,7 @@ const Pricing = () => {
                 Choose the plan that fits your travel needs. All pilot program members get special early-bird pricing and benefits.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Freemium Plan */}
               <Card className="card-elegant relative">
@@ -104,7 +111,7 @@ const Pricing = () => {
                   </Button>
                 </CardContent>
               </Card>
-              
+
               {/* Week Explorer Plan */}
               <Card className="card-elegant relative ring-2 ring-primary scale-105">
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
@@ -151,7 +158,7 @@ const Pricing = () => {
                   </Button>
                 </CardContent>
               </Card>
-              
+
               {/* Nomad Plan */}
               <Card className="card-elegant relative">
                 <CardHeader className="text-center pb-4">
@@ -203,7 +210,7 @@ const Pricing = () => {
                 </CardContent>
               </Card>
             </div>
-            
+
             <div className="mt-16 text-center">
               <div className="inline-flex items-center space-x-4 p-6 bg-blue-50 rounded-xl max-w-2xl">
                 <div className="text-3xl">💡</div>
@@ -224,7 +231,7 @@ const Pricing = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold mb-4">Pricing FAQ</h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <Card className="card-elegant p-6">
                 <CardHeader>
@@ -236,7 +243,7 @@ const Pricing = () => {
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="card-elegant p-6">
                 <CardHeader>
                   <CardTitle>What happens if I exceed my data limit?</CardTitle>
@@ -247,7 +254,7 @@ const Pricing = () => {
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="card-elegant p-6">
                 <CardHeader>
                   <CardTitle>Are there any hidden fees?</CardTitle>
@@ -258,7 +265,7 @@ const Pricing = () => {
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="card-elegant p-6">
                 <CardHeader>
                   <CardTitle>How does billing work?</CardTitle>
@@ -281,7 +288,7 @@ const Pricing = () => {
               <p className="text-xl text-muted-foreground mb-8">
                 Start with our free plan and upgrade when you're ready to travel
               </p>
-              
+
               <Link to="/">
                 <Button className="btn-sunset px-8 py-6 text-lg">
                   Join Waitlist Now

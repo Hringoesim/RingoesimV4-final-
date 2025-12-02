@@ -61,6 +61,25 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
+          {/* Resources Section */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-semibold text-white">Destinations</h4>
+            <div className="space-y-2">
+              <Link to="/global-esim" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                Global eSIM
+              </Link>
+              <Link to="/esim-europe" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                eSIM for Europe
+              </Link>
+              <Link to="/esim-usa" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                eSIM for USA
+              </Link>
+              <Link to="/esim-vs-roaming" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                eSIM vs Roaming
+              </Link>
+            </div>
+          </div>
+
           {/* Legal Section */}
           <div className="space-y-4">
             <h4 className="text-sm font-semibold text-white">Legal</h4>

@@ -5,9 +5,16 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+import SEO from "@/components/SEO";
+
 const Terms = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title="Terms of Service - Ringo"
+        description="Read Ringo's Terms of Service. Understand your rights and responsibilities when using our global eSIM services."
+        canonical="/terms"
+      />
       <Navigation currentPage="terms" />
 
       <main className="flex-1">
@@ -36,7 +43,7 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  By accessing or using Ringo's eSIM services ("Service"), you agree to be bound by these Terms of Service ("Terms"). 
+                  By accessing or using Ringo's eSIM services ("Service"), you agree to be bound by these Terms of Service ("Terms").
                   If you do not agree to these Terms, you may not use our Service.
                 </p>
               </section>
@@ -44,7 +51,7 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">2. Description of Service</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Ringo provides global eSIM connectivity services that allow you to maintain your existing phone number 
+                  Ringo provides global eSIM connectivity services that allow you to maintain your existing phone number
                   while adding international data and communication capabilities. Our Service includes:
                 </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2">
@@ -67,11 +74,11 @@ const Terms = () => {
                       <li>You must provide accurate and complete registration information</li>
                     </ul>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Account Security</h3>
                     <p className="text-muted-foreground">
-                      You are responsible for maintaining the confidentiality of your account credentials and 
+                      You are responsible for maintaining the confidentiality of your account credentials and
                       for all activities that occur under your account.
                     </p>
                   </div>
@@ -84,11 +91,11 @@ const Terms = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Subscription Plans</h3>
                     <p className="text-muted-foreground mb-2">
-                      We offer various subscription plans with different data allowances, call minutes, and features. 
+                      We offer various subscription plans with different data allowances, call minutes, and features.
                       Plan details and pricing are available on our website.
                     </p>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Billing and Payments</h3>
                     <ul className="list-disc list-inside text-muted-foreground space-y-1">
@@ -113,13 +120,13 @@ const Terms = () => {
                     <div>
                       <h3 className="text-lg font-semibold text-amber-900 mb-2">Important Notice - Pilot Program</h3>
                       <p className="text-amber-800 text-sm leading-relaxed mb-3">
-                        <strong>Ringo is currently in development and no products are yet available for purchase.</strong> 
+                        <strong>Ringo is currently in development and no products are yet available for purchase.</strong>
                         This website serves as a demonstration of our upcoming service and projected features.
                       </p>
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Pilot Program Participation</h3>
@@ -134,7 +141,7 @@ const Terms = () => {
                       <li>Participation in the pilot program is subject to device compatibility, geographic availability, and program capacity</li>
                     </ul>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Pricing and Service Projections</h3>
                     <p className="text-muted-foreground mb-3">
@@ -148,7 +155,7 @@ const Terms = () => {
                       <li><strong>Notification:</strong> Waitlist members will be notified of final pricing before any purchase commitment</li>
                     </ul>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Waitlist Benefits and Perks</h3>
                     <p className="text-muted-foreground mb-3">
@@ -163,12 +170,12 @@ const Terms = () => {
                       <li><strong>No Commitment:</strong> Waitlist membership creates no obligation to purchase when service becomes available</li>
                     </ul>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Timeline and Availability</h3>
                     <p className="text-muted-foreground">
-                      We do not guarantee any specific timeline for service launch or pilot program availability. 
-                      Development timelines may change based on technical requirements, regulatory approvals, and market conditions. 
+                      We do not guarantee any specific timeline for service launch or pilot program availability.
+                      Development timelines may change based on technical requirements, regulatory approvals, and market conditions.
                       Waitlist members will be notified of significant updates and launch announcements.
                     </p>
                   </div>
@@ -196,11 +203,11 @@ const Terms = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Network Coverage</h3>
                     <p className="text-muted-foreground">
-                      Service availability depends on network coverage from our partner carriers. 
+                      Service availability depends on network coverage from our partner carriers.
                       We do not guarantee service availability in all locations or at all times.
                     </p>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Service Limitations</h3>
                     <ul className="list-disc list-inside text-muted-foreground space-y-1">
@@ -215,7 +222,7 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">8. Privacy and Data Protection</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Your privacy is important to us. Our collection and use of personal information is governed by our 
+                  Your privacy is important to us. Our collection and use of personal information is governed by our
                   Privacy Policy, which is incorporated into these Terms by reference.
                 </p>
               </section>
@@ -223,7 +230,7 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">9. Intellectual Property</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  The Service and all related content, features, and functionality are owned by Ringo and are protected 
+                  The Service and all related content, features, and functionality are owned by Ringo and are protected
                   by international copyright, trademark, and other intellectual property laws.
                 </p>
               </section>
@@ -231,8 +238,8 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">10. Limitation of Liability</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  To the maximum extent permitted by law, Ringo shall not be liable for any indirect, incidental, 
-                  special, consequential, or punitive damages, including but not limited to loss of profits, data, 
+                  To the maximum extent permitted by law, Ringo shall not be liable for any indirect, incidental,
+                  special, consequential, or punitive damages, including but not limited to loss of profits, data,
                   or business interruption.
                 </p>
               </section>
@@ -255,8 +262,8 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold mb-4">12. Changes to Terms</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  We reserve the right to modify these Terms at any time. We will notify you of material changes 
-                  via email or through the Service. Continued use of the Service after changes constitutes acceptance 
+                  We reserve the right to modify these Terms at any time. We will notify you of material changes
+                  via email or through the Service. Continued use of the Service after changes constitutes acceptance
                   of the new Terms.
                 </p>
               </section>

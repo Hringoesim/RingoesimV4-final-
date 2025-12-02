@@ -7,11 +7,18 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
 
+import SEO from "@/components/SEO";
+
 const HowItWorks = () => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <SEO
+        title="How Ringo Works - Keep Your Number Abroad"
+        description="Learn how Ringo ports your number to a global eSIM. No apps required, works with your native dialer. Simple setup in 60 seconds."
+        canonical="/how-it-works"
+      />
       <Navigation currentPage="about" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
       <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
 
