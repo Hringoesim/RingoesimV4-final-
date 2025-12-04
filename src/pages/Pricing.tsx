@@ -6,6 +6,7 @@ import { ArrowLeft, Check, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import SEO from "@/components/SEO";
+import Footer from "@/components/Footer";
 
 const Pricing = () => {
   return (
@@ -29,9 +30,6 @@ const Pricing = () => {
               </Link>
               <Link to="/pricing" className="text-sm font-medium transition-colors hover:text-primary text-primary">
                 Pricing
-              </Link>
-              <Link to="/faq" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
-                FAQ
               </Link>
               <Link to="/contact" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
                 Contact
@@ -225,60 +223,7 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="section-padding bg-warm-gradient">
-          <div className="container-max">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Pricing FAQ</h2>
-            </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card className="card-elegant p-6">
-                <CardHeader>
-                  <CardTitle>Can I change plans anytime?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any differences.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-elegant p-6">
-                <CardHeader>
-                  <CardTitle>What happens if I exceed my data limit?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    We'll send you notifications at 80% and 95% usage. After your limit, speeds are reduced but never cut off completely.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-elegant p-6">
-                <CardHeader>
-                  <CardTitle>Are there any hidden fees?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    No hidden fees ever. The price you see is exactly what you pay. No activation fees, no cancellation fees.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-elegant p-6">
-                <CardHeader>
-                  <CardTitle>How does billing work?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Monthly plans bill on your signup date each month. Weekly plans are perfect for short trips and bill every 7 days.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
 
         {/* CTA Section */}
         <section className="section-padding">
@@ -300,15 +245,7 @@ const Pricing = () => {
       </main>
 
       {/* Footer */}
-      <footer className="container-max section-padding">
-        <Separator className="mb-8" />
-        <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-          <p className="text-xs text-muted-foreground">© 2025 Ringo. All rights reserved.</p>
-          <a href="mailto:info@ringoesim.com" className="text-xs text-muted-foreground hover:text-primary">
-            info@ringoesim.com
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

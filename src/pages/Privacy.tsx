@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
 const Privacy = () => {
@@ -316,15 +316,7 @@ const Privacy = () => {
       </main>
 
       {/* Footer */}
-      <footer className="container-max section-padding">
-        <Separator className="mb-8" />
-        <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-          <p className="text-xs text-muted-foreground">© 2025 Ringo. All rights reserved.</p>
-          <a href="mailto:info@ringoesim.com" className="text-xs text-muted-foreground hover:text-primary">
-            info@ringoesim.com
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Ringo</h3>
@@ -61,6 +61,19 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
+          {/* Legal Section */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-semibold text-white">Legal</h4>
+            <div className="space-y-2">
+              <Link to="/privacy" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+
           {/* Resources Section */}
           <div className="space-y-4">
             <h4 className="text-sm font-semibold text-white">Destinations</h4>
@@ -76,19 +89,6 @@ const Footer: React.FC = () => {
               </Link>
               <Link to="/esim-vs-roaming" className="block text-sm text-gray-400 hover:text-white transition-colors">
                 eSIM vs Roaming
-              </Link>
-            </div>
-          </div>
-
-          {/* Legal Section */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-white">Legal</h4>
-            <div className="space-y-2">
-              <Link to="/privacy" className="block text-sm text-gray-400 hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="block text-sm text-gray-400 hover:text-white transition-colors">
-                Terms of Service
               </Link>
             </div>
           </div>

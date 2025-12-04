@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate login
     setTimeout(() => {
       toast({
@@ -46,7 +46,7 @@ const Login = () => {
             <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-sunset">Ringo</span>
             </Link>
-            
+
             <div className="hidden md:flex md:items-center md:space-x-8">
               <Link to="/how-it-works" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
                 How It Works
@@ -54,14 +54,12 @@ const Login = () => {
               <Link to="/pricing" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
                 Pricing
               </Link>
-              <Link to="/faq" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
-                FAQ
-              </Link>
+
               <Link to="/contact" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
                 Contact
               </Link>
             </div>
-            
+
             <div className="hidden md:flex md:items-center md:space-x-4">
               <Link to="/">
                 <Button className="btn-sunset">Join Waitlist</Button>
@@ -79,12 +77,12 @@ const Login = () => {
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </Link>
-              
+
               <Badge className="mb-4">
                 <LogIn className="h-3 w-3 mr-1" />
                 Member Login
               </Badge>
-              
+
               <h1 className="text-3xl font-bold mb-2">
                 Welcome <span className="text-sunset">Back</span>
               </h1>
@@ -113,7 +111,7 @@ const Login = () => {
                       placeholder="your@email.com"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="password" className="block text-sm font-medium mb-2">
                       Password
@@ -142,7 +140,7 @@ const Login = () => {
                       </button>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <label className="flex items-center">
                       <input type="checkbox" className="rounded border-gray-300" />
@@ -152,19 +150,19 @@ const Login = () => {
                       Forgot password?
                     </a>
                   </div>
-                  
-                  <Button 
-                    type="submit" 
-                    className="btn-sunset w-full" 
+
+                  <Button
+                    type="submit"
+                    className="btn-sunset w-full"
                     size="lg"
                     disabled={isLoading}
                   >
                     {isLoading ? "Signing in..." : "Sign In"}
                   </Button>
                 </form>
-                
+
                 <Separator className="my-6" />
-                
+
                 <div className="text-center">
                   <p className="text-sm text-muted-foreground">
                     Don't have an account?{" "}
@@ -175,7 +173,7 @@ const Login = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             <div className="mt-8 text-center">
               <p className="text-xs text-muted-foreground">
                 By signing in, you agree to our{" "}
