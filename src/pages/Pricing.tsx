@@ -1,14 +1,18 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Check, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import { WaitlistDialog } from "@/components/WaitlistDialog";
 
 const Pricing = () => {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
@@ -16,37 +20,9 @@ const Pricing = () => {
         description="Simple, transparent pricing. Day passes from €3.50, monthly plans from €39.90. Unlimited data and voice calls. No hidden fees."
         canonical="/pricing"
       />
-      {/* Navigation */}
-      <header className="border-b">
-        <div className="container-max">
-          <div className="flex h-16 items-center justify-between">
-            <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-sunset">Ringo</span>
-            </Link>
 
-            <div className="hidden md:flex md:items-center md:space-x-8">
-              <Link to="/how-it-works" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
-                How It Works
-              </Link>
-              <Link to="/pricing" className="text-sm font-medium transition-colors hover:text-primary text-primary">
-                Pricing
-              </Link>
-              <Link to="/contact" className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
-                Contact
-              </Link>
-            </div>
-
-            <div className="hidden md:flex md:items-center md:space-x-4">
-              <Link to="/login">
-                <Button variant="ghost">Login</Button>
-              </Link>
-              <Link to="/">
-                <Button className="btn-sunset">Join Waitlist</Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Navigation currentPage="pricing" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
+      <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
 
       <main className="flex-1">
         <section className="py-8">
@@ -104,7 +80,7 @@ const Pricing = () => {
                       <span>Basic app features</span>
                     </li>
                   </ul>
-                  <Button variant="outline" className="w-full" size="lg">
+                  <Button variant="outline" className="w-full" size="lg" onClick={() => setIsWaitlistOpen(true)}>
                     Get Started Free
                   </Button>
                 </CardContent>
@@ -151,7 +127,7 @@ const Pricing = () => {
                       <span>Travel insurance discount</span>
                     </li>
                   </ul>
-                  <Button className="btn-primary w-full" size="lg">
+                  <Button className="btn-primary w-full" size="lg" onClick={() => setIsWaitlistOpen(true)}>
                     Choose Explorer
                   </Button>
                 </CardContent>
@@ -202,7 +178,7 @@ const Pricing = () => {
                       <span>Priority network access</span>
                     </li>
                   </ul>
-                  <Button variant="outline" className="w-full" size="lg">
+                  <Button variant="outline" className="w-full" size="lg" onClick={() => setIsWaitlistOpen(true)}>
                     Choose Nomad
                   </Button>
                 </CardContent>
@@ -234,11 +210,12 @@ const Pricing = () => {
                 Start with our free plan and upgrade when you're ready to travel
               </p>
 
-              <Link to="/">
-                <Button className="btn-sunset px-8 py-6 text-lg">
-                  Join Waitlist Now
-                </Button>
-              </Link>
+              <Button
+                className="btn-sunset px-8 py-6 text-lg"
+                onClick={() => setIsWaitlistOpen(true)}
+              >
+                Join Waitlist Now
+              </Button>
             </div>
           </div>
         </section>
