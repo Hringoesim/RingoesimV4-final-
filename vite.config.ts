@@ -207,6 +207,8 @@ function cdnPrefixImages(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
+    // Use relative asset paths so the built site works when served from any subdirectory
+    base: './',
     server: {
       host: "::",
       port: 8080,
@@ -214,7 +216,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       mode === 'development' &&
-      componentTagger(),
+        componentTagger(),
       cdnPrefixImages(),
     ].filter(Boolean),
     resolve: {
