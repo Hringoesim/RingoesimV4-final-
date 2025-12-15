@@ -167,7 +167,6 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         throw error;
       }
 
-      // Check email status
       if (data?.email_status?.user_email === 'failed') {
         toast({
           title: "Joined Waitlist",
@@ -178,6 +177,15 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         toast({
           title: "Welcome to the waitlist!",
           description: "Check your email for confirmation. We'll be in touch soon!",
+        });
+      }
+
+      // Google Ads Conversion Event
+      if (typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17765913455/GmTECOe2wMgbEO-muZdC',
+          'value': 1.0,
+          'currency': 'USD'
         });
       }
 
