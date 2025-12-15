@@ -1,28 +1,16 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
-declare global {
-    interface Window {
-        gtag: (
-            command: "config" | "event" | "js",
-            targetId: string | Date,
-            config?: Record<string, any>
-        ) => void;
-    }
+'use client';
+import Script from 'next/script';
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+export default function GoogleAnalytics() {
+  return (
+    <>
+      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+      <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });
+      ` }} />
+    </>
+  );
 }
-
-const GoogleAnalytics = () => {
-    const location = useLocation();
-
-    useEffect(() => {
-        if (typeof window.gtag !== "undefined") {
-            window.gtag("config", "G-Y3FYNS797P", {
-                page_path: location.pathname + location.search,
-            });
-        }
-    }, [location]);
-
-    return null;
-};
-
-export default GoogleAnalytics;
