@@ -183,9 +183,9 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
       // Google Ads Conversion Event
       if (typeof window.gtag !== 'undefined') {
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-17765913455/GmTECOe2wMgbEO-muZdC',
+          'send_to': 'AW-17765913455/94u_CNvvmdIbEO-muZdC',
           'value': 1.0,
-          'currency': 'USD'
+          'currency': 'EUR'
         });
       }
 
