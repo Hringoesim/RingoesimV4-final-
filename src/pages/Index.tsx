@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -55,11 +56,12 @@ const Index = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
+                    asChild
                     size="lg"
                     className="bg-white text-orange-600 hover:bg-orange-50 font-semibold px-8 py-6 text-lg"
-                    onClick={() => setIsWaitlistOpen(true)}
+                    data-waitlist-trigger
                   >
-                    Join Waitlist
+                    <Link to="?join-waitlist=true">Join Waitlist</Link>
                   </Button>
                 </div>
               </div>

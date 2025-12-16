@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -12,6 +12,7 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -34,6 +35,21 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [currentPage]);
+
+  // Check for URL-based waitlist trigger
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('join-waitlist') === 'true') {
+      // Clean URL without refresh
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+
+      // Open waitlist (slight delay to ensure hydration/render)
+      setTimeout(() => {
+        onWaitlistOpen?.();
+      }, 500);
+    }
+  }, [location.search, onWaitlistOpen]);
 
   const navItems = [
     { name: 'Home', path: '/', id: 'home' },
@@ -62,7 +78,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
               Ringo
             </span>
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {navItems.map((item) => (
@@ -70,25 +86,24 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
                 key={item.id}
                 to={item.path}
                 onClick={() => handleNavClick(item.path)}
-                className={`text-sm font-medium transition-colors hover:text-orange-500 ${
-                  currentPage === item.id ? 'text-orange-500' : 'text-gray-600'
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-orange-500 ${currentPage === item.id ? 'text-orange-500' : 'text-gray-600'
+                  }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button 
+            <Button
+              asChild
               className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white"
-              onClick={onWaitlistOpen}
               data-waitlist-trigger
             >
-              Join Waitlist
+              <Link to="?join-waitlist=true">Join Waitlist</Link>
             </Button>
           </div>
-          
+
           {/* Mobile Menu Button - Always visible on mobile screens */}
           <div className="flex md:hidden">
-            <button 
+            <button
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-orange-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 transition-all duration-200"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -114,23 +129,24 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
                   key={item.id}
                   to={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className={`block px-3 py-3 text-base font-medium transition-all duration-200 hover:text-orange-500 hover:bg-orange-50 rounded-lg ${
-                    currentPage === item.id ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700'
-                  }`}
+                  className={`block px-3 py-3 text-base font-medium transition-all duration-200 hover:text-orange-500 hover:bg-orange-50 rounded-lg ${currentPage === item.id ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700'
+                    }`}
                 >
                   {item.name}
                 </Link>
               ))}
               <div className="px-3 py-3 border-t border-gray-100 mt-3">
-                <Button 
+                <Button
+                  asChild
                   className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold py-3 shadow-md"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    onWaitlistOpen?.();
-                  }}
                   data-waitlist-trigger
                 >
-                  Join Waitlist
+                  <Link
+                    to="?join-waitlist=true"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Join Waitlist
+                  </Link>
                 </Button>
               </div>
             </div>

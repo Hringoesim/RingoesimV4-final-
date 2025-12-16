@@ -80,8 +80,8 @@ const Pricing = () => {
                       <span>Basic app features</span>
                     </li>
                   </ul>
-                  <Button variant="outline" className="w-full" size="lg" onClick={() => setIsWaitlistOpen(true)}>
-                    Get Started Free
+                  <Button variant="outline" className="w-full" size="lg" asChild data-waitlist-trigger>
+                    <Link to="?join-waitlist=true">Get Started Free</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -127,8 +127,8 @@ const Pricing = () => {
                       <span>Travel insurance discount</span>
                     </li>
                   </ul>
-                  <Button className="btn-primary w-full" size="lg" onClick={() => setIsWaitlistOpen(true)}>
-                    Choose Explorer
+                  <Button className="btn-primary w-full" size="lg" asChild data-waitlist-trigger>
+                    <Link to="?join-waitlist=true">Choose Explorer</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -178,8 +178,8 @@ const Pricing = () => {
                       <span>Priority network access</span>
                     </li>
                   </ul>
-                  <Button variant="outline" className="w-full" size="lg" onClick={() => setIsWaitlistOpen(true)}>
-                    Choose Nomad
+                  <Button variant="outline" className="w-full" size="lg" asChild data-waitlist-trigger>
+                    <Link to="?join-waitlist=true">Choose Nomad</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -191,7 +191,7 @@ const Pricing = () => {
                 <div className="text-left">
                   <p className="font-semibold text-blue-900 text-lg">Pilot Program Benefits</p>
                   <p className="text-blue-700">
-                    Early pilot members receive 50% off first 3 months, extended trial periods, and grandfather pricing protection against future increases.
+                    Early pilot members receive extended trial periods and grandfather pricing protection against future increases.
                   </p>
                 </div>
               </div>
@@ -212,9 +212,10 @@ const Pricing = () => {
 
               <Button
                 className="btn-sunset px-8 py-6 text-lg"
-                onClick={() => setIsWaitlistOpen(true)}
+                asChild
+                data-waitlist-trigger
               >
-                Join Waitlist Now
+                <Link to="?join-waitlist=true">Join Waitlist Now</Link>
               </Button>
             </div>
           </div>

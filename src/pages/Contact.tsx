@@ -393,9 +393,10 @@ const Contact = () => {
                 <CardContent>
                   <Button
                     className="bg-white text-orange-600 hover:bg-orange-50 font-semibold"
-                    onClick={() => setIsWaitlistOpen(true)}
+                    asChild
+                    data-waitlist-trigger
                   >
-                    Join Waitlist
+                    <Link to="?join-waitlist=true">Join Waitlist</Link>
                   </Button>
                 </CardContent>
               </Card>

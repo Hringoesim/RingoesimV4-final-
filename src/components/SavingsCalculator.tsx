@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -49,8 +50,8 @@ const SavingsCalculator: React.FC = () => {
             {/* Carrier Selection */}
             <div className="space-y-2">
               <label className="text-sm font-medium">Your Carrier</label>
-              <Select 
-                value={selectedCarrier.name} 
+              <Select
+                value={selectedCarrier.name}
                 onValueChange={(value) => {
                   const carrier = CARRIERS.find(c => c.name === value);
                   if (carrier) setSelectedCarrier(carrier);
@@ -78,8 +79,8 @@ const SavingsCalculator: React.FC = () => {
             {/* Trip Duration */}
             <div className="space-y-2">
               <label className="text-sm font-medium">Trip Duration</label>
-              <Select 
-                value={tripDays.toString()} 
+              <Select
+                value={tripDays.toString()}
                 onValueChange={(value) => setTripDays(parseInt(value))}
               >
                 <SelectTrigger>
@@ -98,8 +99,8 @@ const SavingsCalculator: React.FC = () => {
             {/* Ringo Option */}
             <div className="space-y-2">
               <label className="text-sm font-medium">Ringo Plan</label>
-              <Select 
-                value={ringoOption} 
+              <Select
+                value={ringoOption}
                 onValueChange={(value: 'monthly' | 'daily') => setRingoOption(value)}
               >
                 <SelectTrigger>
@@ -138,8 +139,8 @@ const SavingsCalculator: React.FC = () => {
                   €{ringoCost.toFixed(2)}
                 </div>
                 <div className="text-xs text-green-600">
-                  {ringoOption === 'monthly' 
-                    ? 'Fixed monthly rate' 
+                  {ringoOption === 'monthly'
+                    ? 'Fixed monthly rate'
                     : `${tripDays} days × €3.50/day`
                   }
                 </div>
@@ -166,7 +167,7 @@ const SavingsCalculator: React.FC = () => {
               <div className="flex items-start space-x-2">
                 <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                 <div className="text-sm text-yellow-800">
-                  <strong>Tip:</strong> For trips longer than 8 days, the monthly plan (€39.90) 
+                  <strong>Tip:</strong> For trips longer than 8 days, the monthly plan (€39.90)
                   is more cost-effective than day passes (€{(3.50 * tripDays).toFixed(2)}).
                 </div>
               </div>
@@ -175,21 +176,13 @@ const SavingsCalculator: React.FC = () => {
 
           {/* Call to Action */}
           <div className="text-center pt-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold px-8"
-              onClick={() => {
-                // Scroll to waitlist or open waitlist dialog
-                const waitlistButton = document.querySelector('[data-waitlist-trigger]') as HTMLElement;
-                if (waitlistButton) {
-                  waitlistButton.click();
-                } else {
-                  // Fallback: scroll to top where join waitlist button is
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
+              asChild
+              data-waitlist-trigger
             >
-              Save €{savings.toFixed(0)} - Join Waitlist! 🚀
+              <Link to="?join-waitlist=true">Save €{savings.toFixed(0)} - Join Waitlist! 🚀</Link>
             </Button>
           </div>
         </CardContent>
@@ -202,7 +195,7 @@ const SavingsCalculator: React.FC = () => {
             <div className="flex items-start space-x-2">
               <AlertTriangle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
               <div className="text-xs text-amber-800">
-                <strong>Pricing Projection:</strong> Ringo pricing is projected for the upcoming product. 
+                <strong>Pricing Projection:</strong> Ringo pricing is projected for the upcoming product.
                 Traditional carrier rates are typical roaming pass prices and may vary by destination and plan.
               </div>
             </div>

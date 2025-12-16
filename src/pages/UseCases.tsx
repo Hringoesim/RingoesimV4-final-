@@ -253,6 +253,15 @@ const UseCases = () => {
     return "That's enough for 2 tapas dinners in Barcelona!";
   };
 
+  const handleRegionChange = (newRegion: string) => {
+    setUserRegion(newRegion);
+    const newCountries = newRegion === "EU" ? EU_COUNTRIES : NON_EU_COUNTRIES;
+    const defaultCountry = newCountries[0];
+    setHomeCountry(defaultCountry.code);
+    const defaultCarrier = defaultCountry.carriers[0];
+    setCurrentCarrier(defaultCarrier);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <SEO
@@ -305,7 +314,7 @@ const UseCases = () => {
                         <span className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">1</span>
                         Where are you from?
                       </h3>
-                      <RadioGroup value={userRegion} onValueChange={setUserRegion} className="flex space-x-6">
+                      <RadioGroup value={userRegion} onValueChange={handleRegionChange} className="flex space-x-6">
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="EU" id="eu" />
                           <Label htmlFor="eu">I live in the EU</Label>
