@@ -13,6 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const justClosedRef = useRef(false);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -39,7 +40,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
   // Check for URL-based waitlist trigger
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    if (params.get('join-waitlist') === 'true') {
+    if (params.get('join-waitlist') === 'true' && !justClosedRef.current) {
       // Clean URL without refresh
       const newUrl = window.location.pathname;
       window.history.replaceState({}, '', newUrl);
@@ -49,7 +50,14 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
         onWaitlistOpen?.();
       }, 500);
     }
-  }, [location.search, onWaitlistOpen]);
+
+    // Reset the flag after a short delay
+    if (justClosedRef.current) {
+      setTimeout(() => {
+        justClosedRef.current = false;
+      }, 1000);
+    }
+  }, [location, onWaitlistOpen]);
 
   const navItems = [
     { name: 'Home', path: '/', id: 'home' },
