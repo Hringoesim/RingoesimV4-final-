@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +12,15 @@ import { WaitlistDialog } from "@/components/WaitlistDialog";
 
 const Pricing = () => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
+  // Fire Google Ads page view conversion when pricing page loads
+  useEffect(() => {
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-17765913455/GmTECOe2wMgbEO-muZdC'
+      });
+    }
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
