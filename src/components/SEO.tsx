@@ -26,7 +26,7 @@ const SEO = ({
     product
 }: SEOProps) => {
     const siteName = 'Ringo';
-    const siteUrl = 'https://ringoesim.com';
+    const siteUrl = 'https://www.ringoesim.com';
     const fullCanonical = canonical ? `${siteUrl}${canonical} ` : siteUrl;
     const fullImage = image.startsWith('http') ? image : `${siteUrl}${image} `;
 
