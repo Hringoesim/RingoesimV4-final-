@@ -232,5 +232,15 @@ export default defineConfig(({ mode }) => {
           : process.env.VITE_ENABLE_ROUTE_MESSAGING !== 'false'
       ),
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom', 'react-router-dom'],
+            ui: ['@radix-ui/react-dialog', '@radix-ui/react-slot', 'lucide-react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          },
+        },
+      },
+    },
   }
 });
