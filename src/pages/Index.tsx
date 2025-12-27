@@ -193,7 +193,7 @@ const Index = () => {
                       </li>
                       <li className="flex items-center">
                         <Check className="h-3 w-3 text-green-500 mr-2" />
-                        300 min voice calls
+                        Unlimited calls
                       </li>
                       <li className="flex items-center">
                         <Check className="h-3 w-3 text-green-500 mr-2" />
@@ -240,6 +240,10 @@ const Index = () => {
                       <li className="flex items-center">
                         <Check className="h-3 w-3 text-green-500 mr-2" />
                         24/7 priority support
+                      </li>
+                      <li className="flex items-center">
+                        <Check className="h-3 w-3 text-green-500 mr-2" />
+                        Connect to your CRM
                       </li>
                     </ul>
                   </div>
