@@ -235,12 +235,23 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom', 'react-router-dom'],
-            ui: ['@radix-ui/react-dialog', '@radix-ui/react-slot', 'lucide-react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+                return 'vendor-core';
+              }
+              if (id.includes('@radix-ui') || id.includes('lucide-react') || id.includes('class-variance-authority')) {
+                return 'vendor-ui';
+              }
+              if (id.includes('@tanstack/react-query') || id.includes('zod') || id.includes('react-hook-form')) {
+                return 'vendor-utils';
+              }
+              return 'vendor'; // Other dependencies
+            }
           },
         },
       },
+      chunkSizeWarningLimit: 1000,
     },
   }
 });

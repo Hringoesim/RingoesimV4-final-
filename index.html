@@ -48,6 +48,13 @@
     content="Voice-enabled travel eSIM for digital nomads. Make calls, receive SMS, stay connected in 180+ countries." />
   <meta property="twitter:image" content="https://ringoesim.com/images/ringo-og-image.png" />
 
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3FYNS797P"></script>
   <script>
@@ -55,14 +62,15 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-Y3FYNS797P');
+    gtag('config', 'G-Y3FYNS797P', { 'send_page_view': false }); // Handled by React
   </script>
 
   <!-- Performance Optimizations -->
   <!-- Performance Optimizations -->
 
-  <link rel="dns-prefetch" href="//supabase.co" />
-  <link rel="dns-prefetch" href="//api.resend.com" />
+  <link rel="dns-prefetch" href="https://pnyidqisrqmldpdtisth.supabase.co" />
+  <link rel="dns-prefetch" href="https://api.resend.com" />
+  <link rel="preconnect" href="https://pnyidqisrqmldpdtisth.supabase.co" crossorigin />
 
   <!-- Accessibility -->
   <meta name="color-scheme" content="light" />
@@ -83,7 +91,7 @@
       <div style="margin-top: 40px; font-size: 0.9rem; color: #999;">Loading Ringo...</div>
     </div>
   </div>
-  <script type="module" src="/src/main.tsx"></script>
+  <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
 </body>
 
 </html>
