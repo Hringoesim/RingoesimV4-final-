@@ -61,7 +61,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
 
   const navItems = [
     { name: 'Home', path: '/', id: 'home' },
-    { name: 'Plans', path: '/#pricing', id: 'plans' },
+    { name: 'Pricing', path: '/pricing', id: 'pricing' },
     { name: 'Use Cases', path: '/use-cases', id: 'use-cases' },
     { name: 'About', path: '/how-it-works', id: 'about' },
     { name: 'Contact', path: '/contact', id: 'contact' }
@@ -69,12 +69,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
 
   const handleNavClick = (path: string) => {
     setIsMobileMenuOpen(false);
-    if (path.includes('#pricing')) {
-      // Handle pricing scroll
-      setTimeout(() => {
-        document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+
   };
 
   return (
