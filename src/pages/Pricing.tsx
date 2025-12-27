@@ -207,7 +207,7 @@ const Pricing = () => {
                     </li>
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>800 min voice calls</span>
+                      <span>Unlimited voice calls</span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />

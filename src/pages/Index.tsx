@@ -227,7 +227,7 @@ const Index = () => {
                       </li>
                       <li className="flex items-center">
                         <Check className="h-3 w-3 text-green-500 mr-2" />
-                        800 min voice calls
+                        Unlimited voice calls
                       </li>
                       <li className="flex items-center">
                         <Check className="h-3 w-3 text-green-500 mr-2" />
