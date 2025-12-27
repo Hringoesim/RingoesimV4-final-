@@ -26,7 +26,7 @@ const GlobalESIM = () => {
 
             <main className="flex-1">
                 {/* Hero Section */}
-                <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                <section className="py-20 bg-hero-sunset text-white">
                     <div className="max-w-7xl mx-auto px-4 text-center">
                         <h1 className="text-4xl md:text-6xl font-bold mb-6">
                             The Only Global eSIM You'll Ever Need
@@ -36,7 +36,7 @@ const GlobalESIM = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link to="/pricing">
-                                <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-6 text-lg">
+                                <Button size="lg" className="btn-sunset font-semibold px-8 py-6 text-lg">
                                     Get Global Coverage
                                 </Button>
                             </Link>
@@ -72,7 +72,7 @@ const GlobalESIM = () => {
                                 </CardHeader>
                                 <CardContent>
                                     <p className="text-gray-600">
-                                        Unlike data-only eSIMs, Ringo gives you a real number for voice calls and SMS verification codes.
+                                        Unlike data-only eSIMs, Ringo lets you port your number to allow seamless connectivity
                                     </p>
                                 </CardContent>
                             </Card>
@@ -123,7 +123,7 @@ const GlobalESIM = () => {
                             Join thousands of digital nomads and travelers who trust Ringo.
                         </p>
                         <Link to="/pricing">
-                            <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold px-8 py-4 text-lg">
+                            <Button size="lg" className="btn-sunset font-bold px-8 py-4 text-lg">
                                 Get Your Global eSIM Now
                             </Button>
                         </Link>
