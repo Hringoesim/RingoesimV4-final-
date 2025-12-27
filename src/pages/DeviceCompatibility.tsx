@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,8 +8,11 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { WaitlistDialog } from "@/components/WaitlistDialog";
 
 const DeviceCompatibility = () => {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
   const compatibleDevices = [
     {
       brand: "Apple",
@@ -53,7 +57,8 @@ const DeviceCompatibility = () => {
         description="Check if your device is compatible with Ringo eSIM. See the full list of supported devices including iPhone, Samsung, Google Pixel, and more."
         canonical="/device-compatibility"
       />
-      <Navigation currentPage="device-compatibility" />
+      <Navigation currentPage="device-compatibility" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
+      <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
 
       <main className="flex-1">
         <section className="py-8">
@@ -272,8 +277,8 @@ const DeviceCompatibility = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/">
-                  <Button className="btn-sunset px-8 py-6 text-lg">
+                <Link to="?join-waitlist=true">
+                  <Button className="btn-sunset px-8 py-6 text-lg" data-waitlist-trigger>
                     Join Waitlist
                   </Button>
                 </Link>

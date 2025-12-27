@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { WaitlistDialog } from "@/components/WaitlistDialog";
 
 // Country and carrier data
 const EU_COUNTRIES = [
@@ -156,6 +157,7 @@ const UseCases = () => {
   const [currentCarrier, setCurrentCarrier] = useState("Deutsche Telekom");
   const [hasRoamingPass, setHasRoamingPass] = useState(false);
   const [animatedSavings, setAnimatedSavings] = useState(0);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   // Get available carriers based on home country
   const getAvailableCarriers = () => {
@@ -269,7 +271,8 @@ const UseCases = () => {
         description="See how Ringo compares to traditional roaming, Airalo, Holafly, and Google Fi. Calculate your savings with our interactive tool."
         canonical="/use-cases"
       />
-      <Navigation currentPage="use-cases" />
+      <Navigation currentPage="use-cases" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
+      <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -524,8 +527,8 @@ const UseCases = () => {
 
                     {/* CTAs */}
                     <div className="space-y-3">
-                      <Link to="/">
-                        <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3">
+                      <Link to="?join-waitlist=true">
+                        <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3" data-waitlist-trigger>
                           Join Waitlist – Lock In Best Pricing
                         </Button>
                       </Link>

@@ -61,7 +61,7 @@ const Login = () => {
             </div>
 
             <div className="hidden md:flex md:items-center md:space-x-4">
-              <Link to="/">
+              <Link to="/?join-waitlist=true">
                 <Button className="btn-sunset">Join Waitlist</Button>
               </Link>
             </div>
@@ -166,7 +166,7 @@ const Login = () => {
                 <div className="text-center">
                   <p className="text-sm text-muted-foreground">
                     Don't have an account?{" "}
-                    <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium">
+                    <Link to="/?join-waitlist=true" className="text-blue-600 hover:text-blue-800 font-medium">
                       Join the waitlist
                     </Link>
                   </p>

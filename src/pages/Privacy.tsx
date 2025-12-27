@@ -22,7 +22,7 @@ const Privacy = () => {
             </Link>
 
             <div className="hidden md:flex md:items-center md:space-x-4">
-              <Link to="/">
+              <Link to="/?join-waitlist=true">
                 <Button className="btn-sunset">Join Waitlist</Button>
               </Link>
             </div>
