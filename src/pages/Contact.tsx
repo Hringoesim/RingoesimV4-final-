@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Clock, Linkedin, ArrowLeft, Send, Users, HelpCircle, CheckCircle } from "lucide-react";
+import { Mail, Clock, Linkedin, ArrowLeft, Send, HelpCircle, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -377,34 +377,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Call to Action Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Join Pilot Program */}
-              <Card className="bg-gradient-to-br from-orange-500 to-pink-500 text-white border-0">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <Users className="h-6 w-6 mr-2" />
-                    Join Our Pilot Program
-                  </CardTitle>
-                  <p className="text-orange-100">Be among the first to experience Ringo's global connectivity</p>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    className="bg-white text-orange-600 hover:bg-orange-50 font-semibold"
-                    asChild
-                    data-waitlist-trigger
-                  >
-                    <Link to="?join-waitlist=true">Join Waitlist</Link>
-                  </Button>
-                </CardContent>
-              </Card>
 
-
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />
