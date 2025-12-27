@@ -55,45 +55,9 @@ const Pricing = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Freemium Plan */}
-              <Card className="card-elegant relative">
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-2xl font-semibold">Freemium</CardTitle>
-                  <div className="mt-4">
-                    <span className="text-5xl font-bold">€0</span>
-                    <span className="text-muted-foreground text-lg">/month</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-2">Perfect for trying Ringo</p>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <ul className="space-y-4">
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>0GB Data</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Inbound calls only</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Receive SMS</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Email support</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Basic app features</span>
-                    </li>
-                  </ul>
-                  <Button variant="outline" className="w-full" size="lg" asChild data-waitlist-trigger>
-                    <Link to="?join-waitlist=true">Get Started Free</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Freemium Plan - Removed */}
+
 
               {/* Week Explorer Plan */}
               <Card className="card-elegant relative ring-2 ring-primary scale-105">
