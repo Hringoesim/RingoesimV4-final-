@@ -20,13 +20,13 @@ const SEO = ({
     title,
     description,
     canonical,
-    image = '/images/ringo-og-image.png',
+    image = '/favicon.svg',
     type = 'website',
     noindex = false,
     product
 }: SEOProps) => {
     const siteName = 'Ringo';
-    const siteUrl = 'https://www.ringoesim.com';
+    const siteUrl = 'https://ringoesim.com';
     const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
     const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
@@ -39,7 +39,7 @@ const SEO = ({
             "url": siteUrl,
             "logo": {
                 "@type": "ImageObject",
-                "url": `${siteUrl}/images/ringo_circular_favicon_20251121_135218.png`,
+                "url": `${siteUrl}/favicon.svg`,
                 "width": 512,
                 "height": 512
             },
@@ -96,9 +96,9 @@ const SEO = ({
             {/* Standard Metadata */}
             <title>{title}</title>
             <meta name="description" content={description} />
+            <title>{title}</title>
+            <meta name="description" content={description} />
             <link rel="canonical" href={fullCanonical} />
-            <link rel="icon" type="image/png" href={`${siteUrl}/images/ringo_circular_favicon_20251121_135218.png`} />
-            <link rel="apple-touch-icon" href={`${siteUrl}/images/ringo_circular_favicon_20251121_135218.png`} />
             {noindex && <meta name="robots" content="noindex, nofollow" />}
 
             {/* Open Graph / Facebook */}
