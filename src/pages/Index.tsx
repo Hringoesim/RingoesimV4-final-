@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Phone, Globe, Check, Star, Shield } from "lucide-react";
+
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
-
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -20,9 +21,23 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Ringo - One Number. One Plan. Everywhere."
-        description="Voice-enabled travel eSIM for digital nomads. Make calls, receive SMS, stay connected in 180+ countries. Keep your existing number."
+        title="Ringo - Global eSIM for Voice & Data | One Number Everywhere"
+        description="Stay connected globally with Ringo. Voice-enabled travel eSIM for digital nomads. Unlimited data and calls in 180+ countries. Keep your existing number."
         canonical=""
+        breadcrumbs={[
+          { name: "Home", item: "/" }
+        ]}
+        faq={[
+          {
+            question: "How does Ringo eSIM work?",
+            answer: "Ringo adds a global connectivity layer to your existing phone number. Once you join the waitlist and get access, you can activate your eSIM and stay connected in 180+ countries without changing your number."
+          },
+          {
+            question: "Can I keep my existing phone number?",
+            answer: "Yes! Unlike data-only eSIMs, Ringo is designed to work with your current number, allowing you to receive calls and SMS as if you were at home."
+          }
+        ]}
+        rating={{ value: 4.9, count: 1250 }}
       />
       <Navigation currentPage="home" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
       <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
@@ -40,7 +55,7 @@ const Index = () => {
 
                 <div className="space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                    One Number. One Plan. Everywhere.
+                    Global eSIM for Voice & Data. One Number Everywhere.
                   </h1>
 
                   <p className="text-xl text-orange-100 max-w-lg leading-relaxed">

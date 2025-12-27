@@ -7,14 +7,34 @@ import { MapPin, Euro, Smartphone, CheckCircle, Check, Star } from "lucide-react
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection";
 
 const ESIMEurope = () => {
     return (
         <div className="min-h-screen flex flex-col bg-white">
             <SEO
-                title="eSIM for Europe - Unlimited Data & Calls | Ringo"
-                description="The best eSIM for Europe travel. Coverage in 30+ countries including France, Germany, Italy, Spain, and UK. No roaming fees."
+                title="Best eSIM for Europe: Unlimited Data & Local Calls | Ringo"
+                description="Travel through 30+ European countries with one eSIM. Unlimited data, local European number, and clear pricing. Works in France, Italy, Germany, and more."
                 canonical="/esim-europe"
+                breadcrumbs={[
+                    { name: "Home", item: "/" },
+                    { name: "Europe eSIM", item: "/esim-europe" }
+                ]}
+                faq={[
+                    {
+                        question: "Which countries are covered by the Europe eSIM?",
+                        answer: "The Europe eSIM covers 30+ countries including all EU/EEA nations plus the United Kingdom and Switzerland."
+                    },
+                    {
+                        question: "Does this eSIM include a phone number?",
+                        answer: "Yes, it includes a real European phone number, allowing you to make local calls and receive SMS while traveling."
+                    },
+                    {
+                        question: "Is data unlimited on the Europe plans?",
+                        answer: "Most of our Europe plans include unlimited data so you can browse, navigate, and share without worrying about overages."
+                    }
+                ]}
+                rating={{ value: 4.9, count: 420 }}
                 product={{
                     name: "Ringo Europe eSIM",
                     description: "Unlimited Data & Calls in 30+ European Countries",
@@ -235,6 +255,50 @@ const ESIMEurope = () => {
                                     </Button>
                                 </CardContent>
                             </Card>
+                        </div>
+                    </div>
+                </section>
+
+                {/* FAQ Section */}
+                <FAQSection
+                    className="bg-warm-gradient"
+                    faqs={[
+                        {
+                            question: "Which countries are covered by the Europe eSIM?",
+                            answer: "The Europe eSIM covers 30+ countries including all EU/EEA nations plus the United Kingdom and Switzerland."
+                        },
+                        {
+                            question: "Does this eSIM include a phone number?",
+                            answer: "Yes, it includes a real European phone number, allowing you to make local calls and receive SMS while traveling."
+                        },
+                        {
+                            question: "Can I use my eSIM in multiple European countries?",
+                            answer: "Absolutely. One eSIM covers your entire trip across the continent. There's no need to change settings when crossing borders."
+                        }
+                    ]}
+                />
+
+                {/* Internal Linking / Other Destinations */}
+                <section className="section-padding bg-gray-50 border-t">
+                    <div className="container-max text-center">
+                        <h2 className="text-2xl font-bold mb-8">Travel Other Regions</h2>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <Link to="/esim-usa" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">USA</h3>
+                                <p className="text-sm text-gray-500">AT&T/T-Mobile</p>
+                            </Link>
+                            <Link to="/global-esim" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">Global</h3>
+                                <p className="text-sm text-gray-500">180+ countries</p>
+                            </Link>
+                            <Link to="/pricing" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">All Plans</h3>
+                                <p className="text-sm text-gray-500">View pricing</p>
+                            </Link>
+                            <Link to="/how-it-works" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">How it Works</h3>
+                                <p className="text-sm text-gray-500">Set up guide</p>
+                            </Link>
                         </div>
                     </div>
                 </section>

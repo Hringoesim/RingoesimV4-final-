@@ -7,14 +7,34 @@ import { Flag, Wifi, Phone, Map, Check, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection";
 
 const ESIMUSA = () => {
     return (
         <div className="min-h-screen flex flex-col bg-white">
             <SEO
-                title="eSIM for USA - Travel Data & Calls | Ringo"
-                description="Best eSIM for USA travel. Connect to AT&T and T-Mobile networks. Includes a US phone number for calls and texts. Instant delivery."
+                title="Best eSIM for USA: Travel Data, Calls & SMS | Ringo"
+                description="Stay connected in the USA with Ringo. High-speed 5G/4G data on AT&T and T-Mobile. Includes a real US phone number for calls and texts. Instant activation."
                 canonical="/esim-usa"
+                breadcrumbs={[
+                    { name: "Home", item: "/" },
+                    { name: "USA eSIM", item: "/esim-usa" }
+                ]}
+                faq={[
+                    {
+                        question: "Which networks does the USA eSIM use?",
+                        answer: "Ringo connects you to the best available 5G and 4G networks in the USA, primarily AT&T and T-Mobile."
+                    },
+                    {
+                        question: "Does the USA eSIM include a local phone number?",
+                        answer: "Yes, every USA plan includes a real US phone number, which is essential for local calls, SMS, and services like Uber or Yelp."
+                    },
+                    {
+                        question: "How quickly can I activate my USA eSIM?",
+                        answer: "Activation is immediate. You'll receive a QR code via email instantly after purchase and can be online in less than a minute."
+                    }
+                ]}
+                rating={{ value: 4.8, count: 620 }}
                 product={{
                     name: "Ringo USA eSIM",
                     description: "Unlimited Data & Calls in the USA",
@@ -30,7 +50,7 @@ const ESIMUSA = () => {
                 <section className="py-20 bg-gradient-to-br from-red-600 to-blue-800 text-white">
                     <div className="max-w-7xl mx-auto px-4 text-center">
                         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                            Stay Connected in the USA
+                            The Best eSIM for USA Travel
                         </h1>
                         <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
                             Premium 5G/4G coverage on AT&T and T-Mobile. Includes a real US phone number.
@@ -237,6 +257,50 @@ const ESIMUSA = () => {
                                     </Button>
                                 </CardContent>
                             </Card>
+                        </div>
+                    </div>
+                </section>
+
+                {/* FAQ Section */}
+                <FAQSection
+                    className="bg-warm-gradient"
+                    faqs={[
+                        {
+                            question: "Which networks does the USA eSIM use?",
+                            answer: "Ringo connects you to the best available 5G and 4G networks in the USA, primarily AT&T and T-Mobile."
+                        },
+                        {
+                            question: "Does the USA eSIM include a local phone number?",
+                            answer: "Yes, every USA plan includes a real US phone number, which is essential for local calls, SMS, and services like Uber or Yelp."
+                        },
+                        {
+                            question: "Will this eSIM work in National Parks?",
+                            answer: "Yes, Ringo uses top-tier networks that provide extensive coverage across the United States, including many National Park areas."
+                        }
+                    ]}
+                />
+
+                {/* Internal Linking / Other Destinations */}
+                <section className="section-padding bg-gray-50 border-t">
+                    <div className="container-max text-center">
+                        <h2 className="text-2xl font-bold mb-8">Explore More Regions</h2>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <Link to="/esim-europe" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">Europe</h3>
+                                <p className="text-sm text-gray-500">30+ countries</p>
+                            </Link>
+                            <Link to="/global-esim" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">Global Plan</h3>
+                                <p className="text-sm text-gray-500">180+ countries</p>
+                            </Link>
+                            <Link to="/pricing" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">View Plans</h3>
+                                <p className="text-sm text-gray-500">Flexible options</p>
+                            </Link>
+                            <Link to="/use-cases" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">Use Cases</h3>
+                                <p className="text-sm text-gray-500">Who it's for</p>
+                            </Link>
                         </div>
                     </div>
                 </section>

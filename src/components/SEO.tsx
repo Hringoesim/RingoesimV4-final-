@@ -14,6 +14,12 @@ interface SEOProps {
         price: string;
         currency: string;
     };
+    breadcrumbs?: Array<{ name: string; item: string }>;
+    faq?: Array<{ question: string; answer: string }>;
+    rating?: {
+        value: number;
+        count: number;
+    };
 }
 
 const SEO = ({
@@ -23,7 +29,10 @@ const SEO = ({
     image = '/favicon.svg',
     type = 'website',
     noindex = false,
-    product
+    product,
+    breadcrumbs,
+    faq,
+    rating
 }: SEOProps) => {
     const siteName = 'Ringo';
     const siteUrl = 'https://www.ringoesim.com';
@@ -82,7 +91,42 @@ const SEO = ({
                 "priceCurrency": product.currency,
                 "availability": "https://schema.org/InStock",
                 "url": fullCanonical
-            }
+            },
+            ...(rating && {
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": rating.value,
+                    "reviewCount": rating.count
+                }
+            })
+        } as any);
+    }
+
+    if (breadcrumbs && breadcrumbs.length > 0) {
+        graph.push({
+            "@type": "BreadcrumbList",
+            "@id": `${fullCanonical}/#breadcrumb`,
+            "itemListElement": breadcrumbs.map((crumb, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "name": crumb.name,
+                "item": crumb.item.startsWith('http') ? crumb.item : `${siteUrl}${crumb.item}`
+            }))
+        } as any);
+    }
+
+    if (faq && faq.length > 0) {
+        graph.push({
+            "@type": "FAQPage",
+            "@id": `${fullCanonical}/#faq`,
+            "mainEntity": faq.map(item => ({
+                "@type": "Question",
+                "name": item.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.answer
+                }
+            }))
         } as any);
     }
 

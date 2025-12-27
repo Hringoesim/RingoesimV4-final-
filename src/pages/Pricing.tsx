@@ -28,6 +28,24 @@ const Pricing = () => {
         title="Ringo Pricing - Transparent Global eSIM Plans"
         description="Simple, transparent pricing. Day passes from €3.50, monthly plans from €39.90. Unlimited data and voice calls. No hidden fees."
         canonical="/pricing"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Pricing", item: "/pricing" }
+        ]}
+        faq={[
+          {
+            question: "Are there any hidden fees?",
+            answer: "No. Our pricing is completely transparent. You pay for the plan you choose, and that's it."
+          },
+          {
+            question: "Can I cancel my monthly plan?",
+            answer: "Yes, you can cancel your monthly subscription at any time. There are no long-term contracts."
+          },
+          {
+            question: "Does 'Unlimited Data' have a fair usage policy?",
+            answer: "Our unlimited plans are designed for normal personal use. We do not throttle speeds for typical browsing, streaming, or social media usage."
+          }
+        ]}
       />
 
       <Navigation currentPage="pricing" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
@@ -46,7 +64,7 @@ const Pricing = () => {
         <section className="section-padding">
           <div className="container-max">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h2>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h1>
               <p className="text-xl text-gray-600">Simple, transparent pricing for global connectivity</p>
             </div>
 

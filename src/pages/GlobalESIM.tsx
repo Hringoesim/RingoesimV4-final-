@@ -6,14 +6,34 @@ import { Globe, Shield, Zap, Phone, MessageSquare, Wifi } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection";
 
 const GlobalESIM = () => {
     return (
         <div className="min-h-screen flex flex-col bg-white">
             <SEO
-                title="Global eSIM - One Number, 180+ Countries | Ringo"
-                description="Stay connected in 180+ countries with a single global eSIM. Voice calls, SMS, and unlimited data. No more swapping SIM cards."
+                title="Global eSIM for Voice, SMS & Unlimited Data | Ringo"
+                description="One global eSIM for 180+ countries. Unlimited data, voice calls, and SMS. Keep your number while traveling. Simple 60-second setup."
                 canonical="/global-esim"
+                breadcrumbs={[
+                    { name: "Home", item: "/" },
+                    { name: "Global eSIM", item: "/global-esim" }
+                ]}
+                faq={[
+                    {
+                        question: "How many countries does the Global eSIM cover?",
+                        answer: "Ringo's Global eSIM provides coverage in over 180 countries across Europe, Asia, the Americas, and Oceania."
+                    },
+                    {
+                        question: "Does the Global eSIM include a phone number?",
+                        answer: "Yes, Ringo lets you keep and port your existing phone number, allowing you to stay connected with voice and SMS just like you would at home."
+                    },
+                    {
+                        question: "How do I activate my Global eSIM?",
+                        answer: "Activation is instant. Simply scan the QR code provided after purchase, and your eSIM will be ready to use in under 60 seconds."
+                    }
+                ]}
+                rating={{ value: 4.8, count: 850 }}
                 product={{
                     name: "Ringo Global eSIM",
                     description: "Unlimited Data, Voice, and SMS in 180+ countries",
@@ -29,7 +49,7 @@ const GlobalESIM = () => {
                 <section className="py-20 bg-hero-sunset text-white">
                     <div className="max-w-7xl mx-auto px-4 text-center">
                         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                            The Only Global eSIM You'll Ever Need
+                            Global eSIM for Voice, SMS & Unlimited Data
                         </h1>
                         <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
                             One number. One plan. Coverage in 180+ countries. Stop buying local SIMs and start traveling freely.
@@ -110,6 +130,49 @@ const GlobalESIM = () => {
                         <div className="mt-12">
                             <Link to="/use-cases">
                                 <Button variant="outline" size="lg">View All Countries</Button>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+                {/* FAQ Section */}
+                <FAQSection
+                    className="bg-warm-gradient"
+                    faqs={[
+                        {
+                            question: "How many countries does the Global eSIM cover?",
+                            answer: "Ringo's Global eSIM provides coverage in over 180 countries across Europe, Asia, the Americas, and Oceania."
+                        },
+                        {
+                            question: "Does the Global eSIM include a phone number?",
+                            answer: "Yes, Ringo lets you keep and port your existing phone number, allowing you to stay connected with voice and SMS just like you would at home."
+                        },
+                        {
+                            question: "How do I activate my Global eSIM?",
+                            answer: "Activation is instant. Simply scan the QR code provided after purchase, and your eSIM will be ready to use in under 60 seconds."
+                        }
+                    ]}
+                />
+
+                {/* Internal Linking / Other Destinations */}
+                <section className="section-padding bg-gray-50 border-t">
+                    <div className="container-max text-center">
+                        <h2 className="text-2xl font-bold mb-8">Travel Other Regions</h2>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <Link to="/esim-usa" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">USA</h3>
+                                <p className="text-sm text-gray-500">AT&T/T-Mobile</p>
+                            </Link>
+                            <Link to="/esim-europe" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">Europe</h3>
+                                <p className="text-sm text-gray-500">30+ countries</p>
+                            </Link>
+                            <Link to="/pricing" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">All Plans</h3>
+                                <p className="text-sm text-gray-500">View pricing</p>
+                            </Link>
+                            <Link to="/how-it-works" className="p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow">
+                                <h3 className="font-bold">How it Works</h3>
+                                <p className="text-sm text-gray-500">Set up guide</p>
                             </Link>
                         </div>
                     </div>

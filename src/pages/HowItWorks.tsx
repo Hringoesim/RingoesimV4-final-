@@ -15,9 +15,23 @@ const HowItWorks = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="How Ringo Works - Keep Your Number Abroad"
+        title="How Ringo Works - Keep Your Number Abroad | Global eSIM"
         description="Learn how Ringo ports your number to a global eSIM. No apps required, works with your native dialer. Simple setup in 60 seconds."
         canonical="/how-it-works"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "How It Works", item: "/how-it-works" }
+        ]}
+        faq={[
+          {
+            question: "How does the number porting work?",
+            answer: "We use standard telecommunications protocols to transfer your number to our global network. It remains your number, but it's now accessible anywhere."
+          },
+          {
+            question: "Do I need a special app to make calls?",
+            answer: "No. Ringo works with your phone's native dialer. You make and receive calls just like you do at home."
+          }
+        ]}
       />
       <Navigation currentPage="about" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
       <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
@@ -27,7 +41,7 @@ const HowItWorks = () => {
         <section className="py-20 bg-gradient-to-br from-orange-500 to-pink-500 text-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-6">About Ringo</h1>
+              <h1 className="text-4xl sm:text-5xl font-bold mb-6">How Ringo Works</h1>
               <p className="text-xl text-orange-100 max-w-3xl mx-auto">
                 Revolutionizing global connectivity by letting you keep your existing phone number everywhere
               </p>
