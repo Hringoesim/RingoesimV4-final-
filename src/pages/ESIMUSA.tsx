@@ -92,10 +92,8 @@ const ESIMUSA = () => {
                 <section className="section-padding bg-gray-50">
                     <div className="container-max">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold mb-4">Choose Your USA Plan</h2>
-                            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                                Simple, transparent pricing for your American adventure.
-                            </p>
+                            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h2>
+                            <p className="text-xl text-gray-600">Simple, transparent pricing for global connectivity</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -124,7 +122,7 @@ const ESIMUSA = () => {
                                             <span>20 SMS messages</span>
                                         </li>
                                     </ul>
-                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                    <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                                         <Link to="/pricing?join-waitlist=true">Get Started</Link>
                                     </Button>
                                 </CardContent>
@@ -138,36 +136,23 @@ const ESIMUSA = () => {
                                         <span className="text-3xl font-bold">€24.90</span>
                                         <span className="text-muted-foreground text-lg">/week</span>
                                     </div>
-                                    <p className="text-sm text-muted-foreground mt-2">Ideal for short trips</p>
                                 </CardHeader>
                                 <CardContent className="space-y-6 flex-1 flex flex-col">
                                     <ul className="space-y-4 flex-1">
                                         <li className="flex items-center space-x-3">
                                             <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>10GB High-speed data</span>
+                                            <span>Unlimited data</span>
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>120 minutes calls</span>
+                                            <span>120 min voice calls</span>
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>Unlimited SMS</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>Voicemail-to-Text</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>Priority email support</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>Travel insurance discount</span>
+                                            <span>50 SMS messages</span>
                                         </li>
                                     </ul>
-                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                    <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                                         <Link to="/pricing?join-waitlist=true">Get Started</Link>
                                     </Button>
                                 </CardContent>
@@ -175,7 +160,7 @@ const ESIMUSA = () => {
 
                             {/* Nomad Plan */}
                             <Card className="card-elegant relative ring-2 ring-primary scale-105 shadow-xl z-10 h-full flex flex-col">
-                                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+                                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
                                     <Star className="h-3 w-3 mr-1" />
                                     Most Popular
                                 </Badge>
@@ -185,13 +170,12 @@ const ESIMUSA = () => {
                                         <span className="text-5xl font-bold">€39.90</span>
                                         <span className="text-muted-foreground text-lg">/month</span>
                                     </div>
-                                    <p className="text-sm text-muted-foreground mt-2">For digital nomads</p>
                                 </CardHeader>
                                 <CardContent className="space-y-6 flex-1 flex flex-col">
                                     <ul className="space-y-4 flex-1">
                                         <li className="flex items-center space-x-3">
                                             <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>50GB High-speed data</span>
+                                            <span>Unlimited data</span>
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
@@ -203,30 +187,10 @@ const ESIMUSA = () => {
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>Voicemail-to-Text</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>Call Recording</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>24/7 Chat support</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>VPN included</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                            <span>Priority network access</span>
-                                        </li>
-                                        <li className="flex items-center space-x-3">
-                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                                             <span>Number portability</span>
                                         </li>
                                     </ul>
-                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                    <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                                         <Link to="/pricing?join-waitlist=true">Get Started</Link>
                                     </Button>
                                 </CardContent>
@@ -240,7 +204,6 @@ const ESIMUSA = () => {
                                         <span className="text-5xl font-bold">€69.90</span>
                                         <span className="text-muted-foreground text-lg">/month</span>
                                     </div>
-                                    <p className="text-sm text-muted-foreground mt-2">Power user choice</p>
                                 </CardHeader>
                                 <CardContent className="space-y-6 flex-1 flex flex-col">
                                     <ul className="space-y-4 flex-1">
@@ -269,7 +232,7 @@ const ESIMUSA = () => {
                                             <span>Connect to your CRM</span>
                                         </li>
                                     </ul>
-                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                    <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                                         <Link to="/pricing?join-waitlist=true">Get Started</Link>
                                     </Button>
                                 </CardContent>

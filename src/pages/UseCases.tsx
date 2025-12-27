@@ -83,13 +83,13 @@ const ESIM_PROVIDERS = [
   },
   {
     provider: "Ringo",
-    price: 34.90,
-    data: "50GB",
+    price: 39.90,
+    data: "Unlimited",
     voice: true,
     sms: true,
     keepNumber: "60+ countries",
     euNumber: "5 countries",
-    addData: "€8.90/10GB",
+    addData: "Included",
     highlight: true
   }
 ];
@@ -203,11 +203,11 @@ const UseCases = () => {
     // Ringo cost
     let ringoCost;
     if (days <= 3) {
-      ringoCost = 3.90 * days; // Day pass
+      ringoCost = 3.50 * days; // Day pass
     } else if (days <= 7) {
-      ringoCost = 19.90; // Week pass
+      ringoCost = 24.90; // Week explorer
     } else {
-      ringoCost = 34.90; // Monthly
+      ringoCost = 39.90; // Nomad monthly
     }
 
     const savings = carrierCost - ringoCost;
@@ -502,7 +502,13 @@ const UseCases = () => {
                           </div>
                           <div className="flex justify-between">
                             <span>Includes:</span>
-                            <span className="font-bold">Unlimited data + calls + SMS</span>
+                            <span className="font-bold">
+                              {tripLength[0] <= 3
+                                ? "Unlimited data + 25 min voice + 20 SMS"
+                                : tripLength[0] <= 7
+                                  ? "Unlimited data + 120 min voice + 50 SMS"
+                                  : "Unlimited data + calls + SMS"}
+                            </span>
                           </div>
                           <div className="border-t pt-3">
                             <div className="flex justify-between text-lg">
@@ -673,10 +679,10 @@ const UseCases = () => {
                   <tr className="border-t-4 border-green-500 bg-green-50">
                     <td className="px-6 py-4 font-bold text-green-800">Ringo</td>
                     <td className="px-6 py-4 text-center text-green-600 font-bold">€0 (replaces base plan)</td>
-                    <td className="px-6 py-4 text-center text-green-600 font-bold">€0.70/GB effective</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold">Unlimited Data</td>
                     <td className="px-6 py-4 text-center text-green-600 font-bold">Unlimited</td>
-                    <td className="px-6 py-4 text-center text-green-600 font-bold">€3.90/day</td>
-                    <td className="px-6 py-4 text-center text-green-600 font-bold">€19.90</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold">€3.50/day</td>
+                    <td className="px-6 py-4 text-center text-green-600 font-bold">€24.90</td>
                   </tr>
                 </tbody>
               </table>

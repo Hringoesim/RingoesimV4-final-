@@ -148,7 +148,7 @@ const Terms = () => {
                       All pricing information displayed on this website is projected and subject to change:
                     </p>
                     <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                      <li><strong>Projected Pricing:</strong> All prices shown (including €39.90/month and €3.50/day) are estimates for planning purposes only</li>
+                      <li><strong>Projected Pricing:</strong> All prices shown (including €39.90/month, €24.90/week, and €3.50/day) are estimates for planning purposes only</li>
                       <li><strong>Subject to Change:</strong> Final pricing, features, and service availability may differ significantly from projections</li>
                       <li><strong>No Price Guarantee:</strong> Waitlist membership does not guarantee access to projected pricing</li>
                       <li><strong>Market Conditions:</strong> Actual pricing will depend on regulatory requirements, partner agreements, and market conditions</li>

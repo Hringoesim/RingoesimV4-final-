@@ -16,11 +16,6 @@ const Index = () => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const { toast } = useToast();
 
-  const handlePlanClick = (planName: string) => {
-    const subject = `Interest in ${planName} Subscription`;
-    const body = `Hi Ringo team,\n\nI'm interested in learning more about the ${planName} subscription plan.\n\nPlease send me more details.\n\nBest regards`;
-    window.location.href = `mailto:info@ringoesim.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -114,7 +109,7 @@ const Index = () => {
 
             <div className="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {/* Day Pass */}
-              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 cursor-pointer h-full flex flex-col" onClick={() => handlePlanClick('Day Pass')}>
+              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
                 <CardContent className="p-6 text-center flex-1 flex flex-col">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Day Pass</h3>
@@ -137,14 +132,14 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button className="btn-primary w-full text-sm mt-auto">
-                    Get Started
+                  <Button className="btn-sunset w-full text-sm mt-auto" asChild data-waitlist-trigger>
+                    <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
               </Card>
 
               {/* Week Explorer */}
-              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 cursor-pointer h-full flex flex-col" onClick={() => handlePlanClick('Week Explorer')}>
+              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
                 <CardContent className="p-6 text-center flex-1 flex flex-col">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Week Explorer</h3>
@@ -167,14 +162,14 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button className="btn-primary w-full text-sm mt-auto">
-                    Get Started
+                  <Button className="btn-sunset w-full text-sm mt-auto" asChild data-waitlist-trigger>
+                    <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
               </Card>
 
               {/* Nomad */}
-              <Card className="bg-white border-2 border-orange-500 relative scale-105 shadow-xl cursor-pointer h-full flex flex-col" onClick={() => handlePlanClick('Nomad')}>
+              <Card className="bg-white border-2 border-orange-500 relative scale-105 shadow-xl h-full flex flex-col">
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
                   <Star className="h-3 w-3 mr-1" />
                   Most Popular
@@ -205,14 +200,14 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button className="btn-primary w-full text-sm mt-auto">
-                    Get Started
+                  <Button className="btn-sunset w-full text-sm mt-auto" asChild data-waitlist-trigger>
+                    <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
               </Card>
 
               {/* Business Pro */}
-              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 cursor-pointer h-full flex flex-col" onClick={() => handlePlanClick('Business Pro')}>
+              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
                 <CardContent className="p-6 text-center flex-1 flex flex-col">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Business Pro</h3>
@@ -247,8 +242,8 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button className="btn-primary w-full text-sm mt-auto">
-                    Get Started
+                  <Button className="btn-sunset w-full text-sm mt-auto" asChild data-waitlist-trigger>
+                    <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
               </Card>

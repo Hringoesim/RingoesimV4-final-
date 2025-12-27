@@ -293,15 +293,16 @@ export const calculateCarrierCost = (
   const minuteCost = carrier.perMinute * minutes;
   const smsCost = carrier.perSMS * sms;
   const dataCost = carrier.perMB * dataMB;
-  
+
   return minuteCost + smsCost + dataCost;
 };
 
-// Calculate Ringo cost (fixed monthly rate)
+// Calculate Ringo cost (based on plan structure: Day, Week, or Monthly)
 export const calculateRingoCost = (days: number): number => {
-  const monthlyRate = 39.90;
-  const dailyRate = monthlyRate / 30;
-  return dailyRate * days;
+  if (days <= 0) return 0;
+  if (days <= 3) return 3.50 * days;
+  if (days <= 7) return 24.90;
+  return 39.90;
 };
 
 // Get pricing data with current timestamp

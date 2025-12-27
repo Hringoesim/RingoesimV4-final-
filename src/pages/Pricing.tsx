@@ -46,13 +46,8 @@ const Pricing = () => {
         <section className="section-padding">
           <div className="container-max">
             <div className="text-center mb-16">
-              <Badge className="mb-4">💰 Pilot Program Pricing</Badge>
-              <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-                Simple, <span className="text-sunset">Transparent</span> Pricing
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the plan that fits your travel needs. All pilot program members get special early-bird pricing and benefits.
-              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h2>
+              <p className="text-xl text-gray-600">Simple, transparent pricing for global connectivity</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -65,7 +60,6 @@ const Pricing = () => {
                     <span className="text-3xl font-bold">€3.50</span>
                     <span className="text-muted-foreground text-lg">/day</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">Unlimited data</p>
                 </CardHeader>
                 <CardContent className="space-y-6 flex-1 flex flex-col">
                   <ul className="space-y-4 flex-1">
@@ -82,7 +76,7 @@ const Pricing = () => {
                       <span>20 SMS messages</span>
                     </li>
                   </ul>
-                  <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                  <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                     <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
@@ -96,36 +90,23 @@ const Pricing = () => {
                     <span className="text-3xl font-bold">€24.90</span>
                     <span className="text-muted-foreground text-lg">/week</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">Ideal for short trips</p>
                 </CardHeader>
                 <CardContent className="space-y-6 flex-1 flex flex-col">
                   <ul className="space-y-4 flex-1">
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>10GB High-speed data</span>
+                      <span>Unlimited data</span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>120 minutes calls</span>
+                      <span>120 min voice calls</span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Unlimited SMS</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Voicemail-to-Text</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Priority email support</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Travel insurance discount</span>
+                      <span>50 SMS messages</span>
                     </li>
                   </ul>
-                  <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                  <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                     <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
@@ -133,7 +114,7 @@ const Pricing = () => {
 
               {/* Nomad Plan */}
               <Card className="card-elegant relative ring-2 ring-primary scale-105 shadow-xl z-10 h-full flex flex-col">
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
                   <Star className="h-3 w-3 mr-1" />
                   Most Popular
                 </Badge>
@@ -143,13 +124,12 @@ const Pricing = () => {
                     <span className="text-5xl font-bold">€39.90</span>
                     <span className="text-muted-foreground text-lg">/month</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">For digital nomads</p>
                 </CardHeader>
                 <CardContent className="space-y-6 flex-1 flex flex-col">
                   <ul className="space-y-4 flex-1">
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>50GB High-speed data</span>
+                      <span>Unlimited data</span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
@@ -161,30 +141,10 @@ const Pricing = () => {
                     </li>
                     <li className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Voicemail-to-Text</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Call Recording</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>24/7 Chat support</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>VPN included</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span>Priority network access</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                       <span>Number portability</span>
                     </li>
                   </ul>
-                  <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                  <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                     <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
@@ -198,7 +158,6 @@ const Pricing = () => {
                     <span className="text-5xl font-bold">€69.90</span>
                     <span className="text-muted-foreground text-lg">/month</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">Power user choice</p>
                 </CardHeader>
                 <CardContent className="space-y-6 flex-1 flex flex-col">
                   <ul className="space-y-4 flex-1">
@@ -227,7 +186,7 @@ const Pricing = () => {
                       <span>Connect to your CRM</span>
                     </li>
                   </ul>
-                  <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                  <Button className="btn-sunset w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                     <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
