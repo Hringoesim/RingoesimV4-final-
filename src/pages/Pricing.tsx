@@ -57,6 +57,7 @@ const Pricing = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {/* Day Pass */}
+              {/* Day Pass */}
               <Card className="card-elegant relative h-full flex flex-col">
                 <CardHeader className="text-center pb-4 flex-none">
                   <CardTitle className="text-2xl font-semibold">Day Pass</CardTitle>
@@ -81,7 +82,7 @@ const Pricing = () => {
                       <span>20 SMS messages</span>
                     </li>
                   </ul>
-                  <Button variant="outline" className="w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                  <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                     <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
@@ -131,7 +132,7 @@ const Pricing = () => {
               </Card>
 
               {/* Nomad Plan */}
-              <Card className="card-elegant relative ring-2 ring-primary shadow-xl z-10 h-full flex flex-col">
+              <Card className="card-elegant relative ring-2 ring-primary scale-105 shadow-xl z-10 h-full flex flex-col">
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
                   <Star className="h-3 w-3 mr-1" />
                   Most Popular
@@ -183,7 +184,7 @@ const Pricing = () => {
                       <span>Number portability</span>
                     </li>
                   </ul>
-                  <Button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white mt-auto" size="lg" asChild data-waitlist-trigger>
+                  <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                     <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
@@ -226,7 +227,7 @@ const Pricing = () => {
                       <span>Connect to your CRM</span>
                     </li>
                   </ul>
-                  <Button variant="outline" className="w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                  <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
                     <Link to="?join-waitlist=true">Get Started</Link>
                   </Button>
                 </CardContent>
