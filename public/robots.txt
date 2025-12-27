@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /*?*
-Host: https://ringoesim.com
-Sitemap: https://ringoesim.com/sitemap.xml
+Host: https://www.ringoesim.com
+Sitemap: https://www.ringoesim.com/sitemap.xml

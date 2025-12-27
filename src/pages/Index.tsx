@@ -22,7 +22,7 @@ const Index = () => {
       <SEO
         title="Ringo - One Number. One Plan. Everywhere."
         description="Voice-enabled travel eSIM for digital nomads. Make calls, receive SMS, stay connected in 180+ countries. Keep your existing number."
-        canonical="/"
+        canonical=""
       />
       <Navigation currentPage="home" onWaitlistOpen={() => setIsWaitlistOpen(true)} />
       <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />

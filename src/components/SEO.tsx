@@ -26,8 +26,8 @@ const SEO = ({
     product
 }: SEOProps) => {
     const siteName = 'Ringo';
-    const siteUrl = 'https://ringoesim.com';
-    const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
+    const siteUrl = 'https://www.ringoesim.com';
+    const fullCanonical = canonical !== undefined ? `${siteUrl}${canonical}` : siteUrl;
     const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
     // JSON-LD Structured Data
@@ -94,8 +94,6 @@ const SEO = ({
     return (
         <Helmet>
             {/* Standard Metadata */}
-            <title>{title}</title>
-            <meta name="description" content={description} />
             <title>{title}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={fullCanonical} />
