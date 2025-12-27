@@ -527,11 +527,11 @@ const UseCases = () => {
 
                     {/* CTAs */}
                     <div className="space-y-3">
-                      <Link to="?join-waitlist=true">
-                        <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3" data-waitlist-trigger>
+                      <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3" asChild data-waitlist-trigger>
+                        <Link to="?join-waitlist=true">
                           Join Waitlist – Lock In Best Pricing
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                       <Button
                         variant="outline"
                         className="w-full"
@@ -899,11 +899,11 @@ const UseCases = () => {
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Stop Overpaying for Roaming?</h2>
             <p className="text-xl text-orange-100 mb-8">Join our waitlist for early access to Ringo's global connectivity</p>
-            <Link to="/">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-semibold px-8 py-4 text-lg">
+            <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-semibold px-8 py-4 text-lg" asChild data-waitlist-trigger>
+              <Link to="?join-waitlist=true">
                 Join Waitlist Now
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
       </main>

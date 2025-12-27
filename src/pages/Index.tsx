@@ -137,7 +137,7 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button variant="outline" className="w-full text-sm mt-auto">
+                  <Button className="btn-primary w-full text-sm mt-auto">
                     Get Started
                   </Button>
                 </CardContent>
@@ -167,7 +167,7 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button variant="outline" className="w-full text-sm mt-auto">
+                  <Button className="btn-primary w-full text-sm mt-auto">
                     Get Started
                   </Button>
                 </CardContent>
@@ -205,7 +205,7 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white text-sm mt-auto">
+                  <Button className="btn-primary w-full text-sm mt-auto">
                     Get Started
                   </Button>
                 </CardContent>
@@ -247,7 +247,7 @@ const Index = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button variant="outline" className="w-full text-sm mt-auto">
+                  <Button className="btn-primary w-full text-sm mt-auto">
                     Get Started
                   </Button>
                 </CardContent>
