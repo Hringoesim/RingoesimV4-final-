@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Euro, Smartphone, CheckCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { MapPin, Euro, Smartphone, CheckCircle, Check, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -85,18 +86,193 @@ const ESIMEurope = () => {
                     </div>
                 </section>
 
-                {/* CTA */}
-                <section className="py-20 bg-gray-50">
-                    <div className="max-w-4xl mx-auto px-4 text-center">
-                        <h2 className="text-3xl font-bold mb-6">Don't Pay Roaming Fees in Europe</h2>
-                        <p className="text-xl text-gray-600 mb-8">
-                            Carriers charge up to $10/day for international passes. Ringo starts at just €3.50.
-                        </p>
-                        <Link to="/pricing">
-                            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 text-lg">
-                                Get Your Europe eSIM
-                            </Button>
-                        </Link>
+                {/* Pricing Grid Section */}
+                <section className="section-padding bg-gray-50">
+                    <div className="container-max">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl font-bold mb-4">Choose Your Europe Plan</h2>
+                            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                                Simple, transparent pricing for your European adventure.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                            {/* Day Pass */}
+                            <Card className="card-elegant relative h-full flex flex-col">
+                                <CardHeader className="text-center pb-4 flex-none">
+                                    <CardTitle className="text-2xl font-semibold">Day Pass</CardTitle>
+                                    <div className="mt-4">
+                                        <span className="text-3xl font-bold">€3.50</span>
+                                        <span className="text-muted-foreground text-lg">/day</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground mt-2">Unlimited data</p>
+                                </CardHeader>
+                                <CardContent className="space-y-6 flex-1 flex flex-col">
+                                    <ul className="space-y-4 flex-1">
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Unlimited data</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>25 min voice calls</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>20 SMS messages</span>
+                                        </li>
+                                    </ul>
+                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                        <Link to="/pricing?join-waitlist=true">Get Started</Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+
+                            {/* Week Explorer Plan */}
+                            <Card className="card-elegant relative h-full flex flex-col">
+                                <CardHeader className="text-center pb-4 flex-none">
+                                    <CardTitle className="text-2xl font-semibold">Week Explorer</CardTitle>
+                                    <div className="mt-4">
+                                        <span className="text-3xl font-bold">€24.90</span>
+                                        <span className="text-muted-foreground text-lg">/week</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground mt-2">Ideal for short trips</p>
+                                </CardHeader>
+                                <CardContent className="space-y-6 flex-1 flex flex-col">
+                                    <ul className="space-y-4 flex-1">
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>10GB High-speed data</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>120 minutes calls</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Unlimited SMS</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Voicemail-to-Text</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Priority email support</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Travel insurance discount</span>
+                                        </li>
+                                    </ul>
+                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                        <Link to="/pricing?join-waitlist=true">Get Started</Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+
+                            {/* Nomad Plan */}
+                            <Card className="card-elegant relative ring-2 ring-primary scale-105 shadow-xl z-10 h-full flex flex-col">
+                                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+                                    <Star className="h-3 w-3 mr-1" />
+                                    Most Popular
+                                </Badge>
+                                <CardHeader className="text-center pb-4 flex-none">
+                                    <CardTitle className="text-2xl font-semibold">Nomad</CardTitle>
+                                    <div className="mt-4">
+                                        <span className="text-5xl font-bold">€39.90</span>
+                                        <span className="text-muted-foreground text-lg">/month</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground mt-2">For digital nomads</p>
+                                </CardHeader>
+                                <CardContent className="space-y-6 flex-1 flex flex-col">
+                                    <ul className="space-y-4 flex-1">
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>50GB High-speed data</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Unlimited calls</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Unlimited SMS</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Voicemail-to-Text</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Call Recording</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>24/7 Chat support</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>VPN included</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Priority network access</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Number portability</span>
+                                        </li>
+                                    </ul>
+                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                        <Link to="/pricing?join-waitlist=true">Get Started</Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+
+                            {/* Business Pro */}
+                            <Card className="card-elegant relative h-full flex flex-col">
+                                <CardHeader className="text-center pb-4 flex-none">
+                                    <CardTitle className="text-2xl font-semibold">Business Pro</CardTitle>
+                                    <div className="mt-4">
+                                        <span className="text-5xl font-bold">€69.90</span>
+                                        <span className="text-muted-foreground text-lg">/month</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground mt-2">Power user choice</p>
+                                </CardHeader>
+                                <CardContent className="space-y-6 flex-1 flex flex-col">
+                                    <ul className="space-y-4 flex-1">
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Unlimited data</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Unlimited voice calls</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Unlimited SMS</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Number portability</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>24/7 priority support</span>
+                                        </li>
+                                        <li className="flex items-center space-x-3">
+                                            <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                                            <span>Connect to your CRM</span>
+                                        </li>
+                                    </ul>
+                                    <Button className="btn-primary w-full mt-auto" size="lg" asChild data-waitlist-trigger>
+                                        <Link to="/pricing?join-waitlist=true">Get Started</Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </div>
                     </div>
                 </section>
             </main>
