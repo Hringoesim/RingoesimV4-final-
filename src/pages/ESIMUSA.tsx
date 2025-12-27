@@ -95,7 +95,7 @@ const ESIMUSA = () => {
                             Avoid expensive roaming charges from your home carrier.
                         </p>
                         <Link to="/pricing">
-                            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 text-lg">
+                            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 text-lg">
                                 View USA Plans
                             </Button>
                         </Link>

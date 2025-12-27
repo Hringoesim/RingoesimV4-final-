@@ -51,10 +51,10 @@ const ESIMEurope = () => {
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                    Cross Borders Without Losing Signal
+                                    Keep Your Number & Call Worldwide
                                 </h2>
                                 <p className="text-lg text-gray-600 mb-6">
-                                    Planning a Eurotrip? Ringo works seamlessly across borders. Drive from France to Italy to Switzerland without ever changing settings or swapping SIMs.
+                                    With Ringo, you keep your existing phone number active. Make and receive calls worldwide without swapping SIMs or losing touch with friends and family.
                                 </p>
                                 <ul className="space-y-4">
                                     {[
