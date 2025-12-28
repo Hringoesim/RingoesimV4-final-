@@ -237,16 +237,23 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-                return 'vendor-core';
+              // Bundle React and all React-dependent UI libraries together to prevent circular dependencies
+              if (id.includes('react') ||
+                id.includes('react-dom') ||
+                id.includes('react-router-dom') ||
+                id.includes('@radix-ui') ||
+                id.includes('lucide-react') ||
+                id.includes('class-variance-authority')) {
+                return 'vendor-react';
               }
-              if (id.includes('@radix-ui') || id.includes('lucide-react') || id.includes('class-variance-authority')) {
-                return 'vendor-ui';
-              }
-              if (id.includes('@tanstack/react-query') || id.includes('zod') || id.includes('react-hook-form')) {
+              // Separate chunk for data/form utilities
+              if (id.includes('@tanstack/react-query') ||
+                id.includes('zod') ||
+                id.includes('react-hook-form')) {
                 return 'vendor-utils';
               }
-              return 'vendor'; // Other dependencies
+              // All other dependencies
+              return 'vendor';
             }
           },
         },
