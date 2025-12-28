@@ -2,26 +2,26 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
-import { Suspense, lazy } from "react";
+import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Lazy load pages for performance
-const Index = lazy(() => import("./pages/Index"));
-const HowItWorks = lazy(() => import("./pages/HowItWorks"));
-const Pricing = lazy(() => import("./pages/Pricing"));
-const UseCases = lazy(() => import("./pages/UseCases"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Career = lazy(() => import("./pages/Career"));
-const Login = lazy(() => import("./pages/Login"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const Terms = lazy(() => import("./pages/Terms"));
-const DeviceCompatibility = lazy(() => import("./pages/DeviceCompatibility"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const GlobalESIM = lazy(() => import("./pages/GlobalESIM"));
-const ESIMEurope = lazy(() => import("./pages/ESIMEurope"));
-const ESIMUSA = lazy(() => import("./pages/ESIMUSA"));
-const ESIMvsRoaming = lazy(() => import("./pages/ESIMvsRoaming"));
-const ESIMvsCompetitors = lazy(() => import("./pages/ESIMvsCompetitors"));
+const Index = React.lazy(() => import("./pages/Index"));
+const HowItWorks = React.lazy(() => import("./pages/HowItWorks"));
+const Pricing = React.lazy(() => import("./pages/Pricing"));
+const UseCases = React.lazy(() => import("./pages/UseCases"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const Career = React.lazy(() => import("./pages/Career"));
+const Login = React.lazy(() => import("./pages/Login"));
+const Privacy = React.lazy(() => import("./pages/Privacy"));
+const Terms = React.lazy(() => import("./pages/Terms"));
+const DeviceCompatibility = React.lazy(() => import("./pages/DeviceCompatibility"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const GlobalESIM = React.lazy(() => import("./pages/GlobalESIM"));
+const ESIMEurope = React.lazy(() => import("./pages/ESIMEurope"));
+const ESIMUSA = React.lazy(() => import("./pages/ESIMUSA"));
+const ESIMvsRoaming = React.lazy(() => import("./pages/ESIMvsRoaming"));
+const ESIMvsCompetitors = React.lazy(() => import("./pages/ESIMvsCompetitors"));
 
 const queryClient = new QueryClient();
 
@@ -41,7 +41,7 @@ const App = () => (
         <Toaster />
         <BrowserRouter>
           <GoogleAnalytics />
-          <Suspense fallback={<PageLoader />}>
+          <React.Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
@@ -63,7 +63,7 @@ const App = () => (
               <Route path="/device-compatibility" element={<DeviceCompatibility />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </Suspense>
+          </React.Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>

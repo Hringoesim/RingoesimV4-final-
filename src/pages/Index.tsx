@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from "react";
 import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
@@ -14,9 +14,8 @@ import { WaitlistDialog } from "@/components/WaitlistDialog";
 import SEO from "@/components/SEO";
 
 const Index = () => {
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = React.useState(false);
   const { toast } = useToast();
-
 
   return (
     <div className="min-h-screen flex flex-col bg-white">

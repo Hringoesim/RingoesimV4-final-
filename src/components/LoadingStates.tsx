@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Loader2, Wifi, Globe, Zap } from 'lucide-react';
 
 interface LoadingStateProps {
@@ -8,15 +8,15 @@ interface LoadingStateProps {
   className?: string;
 }
 
-export const LoadingState: React.FC<LoadingStateProps> = ({ 
-  type = 'spinner', 
-  message, 
+export const LoadingState: React.FC<LoadingStateProps> = ({
+  type = 'spinner',
+  message,
   size = 'md',
-  className = '' 
+  className = ''
 }) => {
   const sizeClasses = {
     sm: 'h-4 w-4',
-    md: 'h-8 w-8', 
+    md: 'h-8 w-8',
     lg: 'h-12 w-12'
   };
 
@@ -70,7 +70,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
 };
 
 // Animated icons for different states
-export const AnimatedIcon: React.FC<{ 
+export const AnimatedIcon: React.FC<{
   type: 'connecting' | 'success' | 'error' | 'loading';
   size?: 'sm' | 'md' | 'lg';
 }> = ({ type, size = 'md' }) => {
@@ -107,7 +107,7 @@ export const ProgressIndicator: React.FC<{
         {showPercentage && <span className="text-sm font-medium text-gray-900">{Math.round(progress)}%</span>}
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2">
-        <div 
+        <div
           className="bg-gradient-to-r from-orange-500 to-pink-500 h-2 rounded-full transition-all duration-300 ease-out"
           style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
         ></div>

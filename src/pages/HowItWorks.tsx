@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Globe, Shield, Zap, Users, Award, CheckCircle } from "lucide-react";
@@ -10,7 +10,8 @@ import { WaitlistDialog } from "@/components/WaitlistDialog";
 import SEO from "@/components/SEO";
 
 const HowItWorks = () => {
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [isWaitlistOpen, setIsWaitlistOpen] = React.useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">

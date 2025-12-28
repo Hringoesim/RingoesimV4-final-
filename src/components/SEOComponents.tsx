@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
@@ -21,17 +21,17 @@ export const SEO: React.FC<SEOProps> = ({
   noindex = false
 }) => {
   const fullTitle = title.includes('Ringo') ? title : `${title} | Ringo`;
-  
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      
+
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
-      
+
       {/* Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
@@ -39,25 +39,25 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
       <meta property="og:site_name" content="Ringo" />
-      
+
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      
+
       {/* Additional SEO */}
       <meta name="author" content="Ringo" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#f97316" />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
-      
+
       {/* Preconnect to external domains */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      
+
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -109,7 +109,7 @@ export const usePerformanceMonitoring = () => {
     window.addEventListener('load', () => {
       const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
       const loadTime = navigation.loadEventEnd - navigation.loadEventStart;
-      
+
       console.log('Page Load Metrics:', {
         loadTime,
         domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
@@ -129,43 +129,43 @@ export const OptimizedImage: React.FC<{
   className?: string;
   loading?: 'lazy' | 'eager';
   priority?: boolean;
-}> = ({ 
-  src, 
-  alt, 
-  width, 
-  height, 
-  className = '', 
+}> = ({
+  src,
+  alt,
+  width,
+  height,
+  className = '',
   loading = 'lazy',
-  priority = false 
+  priority = false
 }) => {
-  const [isLoaded, setIsLoaded] = React.useState(false);
-  const [hasError, setHasError] = React.useState(false);
+    const [isLoaded, setIsLoaded] = React.useState(false);
+    const [hasError, setHasError] = React.useState(false);
 
-  return (
-    <div className={`relative overflow-hidden ${className}`}>
-      {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-          <div className="text-gray-400 text-sm">Loading...</div>
-        </div>
-      )}
-      
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        loading={priority ? 'eager' : loading}
-        className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        onLoad={() => setIsLoaded(true)}
-        onError={() => setHasError(true)}
-        decoding="async"
-      />
-      
-      {hasError && (
-        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-          <div className="text-gray-500 text-sm">Failed to load image</div>
-        </div>
-      )}
-    </div>
-  );
-};
+    return (
+      <div className={`relative overflow-hidden ${className}`}>
+        {!isLoaded && !hasError && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+            <div className="text-gray-400 text-sm">Loading...</div>
+          </div>
+        )}
+
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={priority ? 'eager' : loading}
+          className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
+          decoding="async"
+        />
+
+        {hasError && (
+          <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+            <div className="text-gray-500 text-sm">Failed to load image</div>
+          </div>
+        )}
+      </div>
+    );
+  };

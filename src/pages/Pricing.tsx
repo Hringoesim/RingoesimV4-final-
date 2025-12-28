@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,10 +11,17 @@ import Navigation from "@/components/Navigation";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
 
 const Pricing = () => {
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [billingCycle, setBillingCycle] = React.useState<"monthly" | "yearly">("monthly");
+  const [searchQuery, setSearchQuery] = React.useState("");
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const [isWaitlistOpen, setIsWaitlistOpen] = React.useState(false);
 
   // Fire Google Ads page view conversion when pricing page loads
-  useEffect(() => {
+  React.useEffect(() => {
     if (typeof window.gtag !== 'undefined') {
       window.gtag('event', 'conversion', {
         'send_to': 'AW-17765913455/GmTECOe2wMgbEO-muZdC'
