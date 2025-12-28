@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { Menu, X, Phone, Globe } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -8,22 +8,22 @@ interface MobileNavigationProps {
 }
 
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   const location = useLocation();
 
   // Close menu when route changes
-  useEffect(() => {
+  React.useEffect(() => {
     setIsOpen(false);
   }, [location]);
 
   // Prevent body scroll when menu is open
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -53,11 +53,11 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = 
       {isOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
-          
+
           {/* Menu Panel */}
           <div className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl">
             <div className="flex flex-col h-full">
@@ -99,7 +99,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = 
               {/* Footer */}
               <div className="p-6 border-t bg-gray-50">
                 <div className="space-y-4">
-                  <Button 
+                  <Button
                     className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600"
                     asChild
                   >
@@ -108,12 +108,12 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = 
                       Get Started
                     </Link>
                   </Button>
-                  
+
                   <div className="text-center">
                     <p className="text-sm text-gray-600">
                       Questions? Email us at
                     </p>
-                    <a 
+                    <a
                       href="mailto:info@ringoesim.com"
                       className="text-sm font-medium text-orange-600 hover:text-orange-700"
                     >
@@ -138,38 +138,38 @@ export const TouchButton: React.FC<{
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   disabled?: boolean;
-}> = ({ 
-  children, 
-  onClick, 
-  variant = 'primary', 
-  size = 'md', 
+}> = ({
+  children,
+  onClick,
+  variant = 'primary',
+  size = 'md',
   className = '',
-  disabled = false 
+  disabled = false
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed';
-  
-  const variantClasses = {
-    primary: 'bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:from-orange-600 hover:to-pink-600 shadow-lg hover:shadow-xl',
-    secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
-    outline: 'border-2 border-orange-500 text-orange-500 hover:bg-orange-50'
-  };
+    const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed';
 
-  const sizeClasses = {
-    sm: 'px-4 py-2 text-sm min-h-[40px]',
-    md: 'px-6 py-3 text-base min-h-[48px]',
-    lg: 'px-8 py-4 text-lg min-h-[56px]'
-  };
+    const variantClasses = {
+      primary: 'bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:from-orange-600 hover:to-pink-600 shadow-lg hover:shadow-xl',
+      secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
+      outline: 'border-2 border-orange-500 text-orange-500 hover:bg-orange-50'
+    };
 
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
-    >
-      {children}
-    </button>
-  );
-};
+    const sizeClasses = {
+      sm: 'px-4 py-2 text-sm min-h-[40px]',
+      md: 'px-6 py-3 text-base min-h-[48px]',
+      lg: 'px-8 py-4 text-lg min-h-[56px]'
+    };
+
+    return (
+      <button
+        onClick={onClick}
+        disabled={disabled}
+        className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      >
+        {children}
+      </button>
+    );
+  };
 
 // Responsive container component
 export const ResponsiveContainer: React.FC<{

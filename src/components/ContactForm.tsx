@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import * as React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,14 +14,14 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [statusMessage, setStatusMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = React.useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -33,11 +33,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Reset status
     setSubmitStatus('idle');
     setStatusMessage('');
-    
+
     // Validate form
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setSubmitStatus('error');
@@ -77,7 +77,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
       if (data && data.success) {
         setSubmitStatus('success');
         setStatusMessage(data.message || 'Thank you! Your message has been sent successfully.');
-        
+
         // Reset form
         setFormData({
           name: '',
@@ -92,7 +92,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
       console.error('Contact form submission error:', error);
       setSubmitStatus('error');
       setStatusMessage(
-        error.message || 
+        error.message ||
         'Failed to send your message. Please try again or email us directly at info@ringoesim.com'
       );
     } finally {
@@ -195,8 +195,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
           <div className="text-center pt-4 border-t">
             <p className="text-sm text-gray-600">
               Or email us directly at{' '}
-              <a 
-                href="mailto:info@ringoesim.com" 
+              <a
+                href="mailto:info@ringoesim.com"
                 className="text-orange-600 hover:text-orange-700 font-medium"
               >
                 info@ringoesim.com

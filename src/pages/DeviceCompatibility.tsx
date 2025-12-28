@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +11,7 @@ import SEO from "@/components/SEO";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
 
 const DeviceCompatibility = () => {
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = React.useState(false);
 
   const compatibleDevices = [
     {

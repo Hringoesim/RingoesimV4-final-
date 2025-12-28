@@ -1,9 +1,9 @@
-import React, { Suspense, lazy } from 'react';
+import * as React from 'react';
 import { Loader2 } from 'lucide-react';
 
 // Lazy load heavy components for better performance
-const SavingsCalculator = lazy(() => import('@/components/SavingsCalculator'));
-const CountrySelector = lazy(() => import('@/components/CountrySelector'));
+const SavingsCalculator = React.lazy(() => import('@/components/SavingsCalculator'));
+const CountrySelector = React.lazy(() => import('@/components/CountrySelector'));
 
 // Loading component for suspense fallbacks
 export const LoadingSpinner: React.FC<{ message?: string }> = ({ message = "Loading..." }) => (
@@ -36,8 +36,8 @@ export class ErrorBoundary extends React.Component<
       return this.props.fallback || (
         <div className="text-center py-12">
           <p className="text-red-600 mb-4">Something went wrong. Please refresh the page.</p>
-          <button 
-            onClick={() => window.location.reload()} 
+          <button
+            onClick={() => window.location.reload()}
             className="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600"
           >
             Refresh Page
@@ -57,9 +57,9 @@ export const LazySection: React.FC<{
   errorFallback?: React.ReactNode;
 }> = ({ children, fallback, errorFallback }) => (
   <ErrorBoundary fallback={errorFallback}>
-    <Suspense fallback={fallback || <LoadingSpinner />}>
+    <React.Suspense fallback={fallback || <LoadingSpinner />}>
       {children}
-    </Suspense>
+    </React.Suspense>
   </ErrorBoundary>
 );
 

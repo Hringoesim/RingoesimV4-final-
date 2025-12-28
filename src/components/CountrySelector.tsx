@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ const DATA_USAGE_EXAMPLES = [
   {
     icon: <MessageSquare className="h-5 w-5" />,
     activity: "WhatsApp messages (100)",
-    size: "1 MB", 
+    size: "1 MB",
     color: "text-green-600"
   },
   {
@@ -47,9 +47,9 @@ const DATA_USAGE_EXAMPLES = [
 ];
 
 const CountrySelector: React.FC = () => {
-  const [selectedOrigin, setSelectedOrigin] = useState<string>('');
-  const [selectedDestination, setSelectedDestination] = useState<string>('');
-  const [selectedCarrier, setSelectedCarrier] = useState<CarrierPricing | null>(null);
+  const [selectedOrigin, setSelectedOrigin] = React.useState<string>('');
+  const [selectedDestination, setSelectedDestination] = React.useState<string>('');
+  const [selectedCarrier, setSelectedCarrier] = React.useState<CarrierPricing | null>(null);
 
   // Get unique origin countries
   const originCountries = Array.from(new Set(COMPETITOR_PRICING.map(c => c.originCountry)))
@@ -63,7 +63,7 @@ const CountrySelector: React.FC = () => {
     });
 
   // Get carriers for selected origin
-  const availableCarriers = selectedOrigin 
+  const availableCarriers = selectedOrigin
     ? COMPETITOR_PRICING.filter(c => c.originCountry === selectedOrigin)
     : [];
 
@@ -82,23 +82,23 @@ const CountrySelector: React.FC = () => {
 
   const getRegionColor = (region: string) => {
     switch (region) {
-      case 'Europe': 
-      case 'EU': 
+      case 'Europe':
+      case 'EU':
       case 'EuropeNonEU':
       case 'Nordics':
         return 'bg-blue-100 text-blue-800 border-blue-200';
       case 'USA':
-      case 'NorthAmerica': 
+      case 'NorthAmerica':
         return 'bg-green-100 text-green-800 border-green-200';
       case 'Asia':
-      case 'AsiaHub': 
+      case 'AsiaHub':
         return 'bg-purple-100 text-purple-800 border-purple-200';
-      case 'Africa': 
+      case 'Africa':
         return 'bg-orange-100 text-orange-800 border-orange-200';
       case 'Gulf':
       case 'Oceania':
         return 'bg-teal-100 text-teal-800 border-teal-200';
-      default: 
+      default:
         return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
@@ -144,8 +144,8 @@ const CountrySelector: React.FC = () => {
             <CardTitle className="text-lg">Select Your Carrier</CardTitle>
           </CardHeader>
           <CardContent>
-            <Select 
-              value={selectedCarrier?.name || ''} 
+            <Select
+              value={selectedCarrier?.name || ''}
               onValueChange={(value) => {
                 const carrier = availableCarriers.find(c => c.name === value);
                 setSelectedCarrier(carrier || null);
@@ -228,7 +228,7 @@ const CountrySelector: React.FC = () => {
                     <div><strong>Per SMS:</strong></div>
                     <div className="text-red-600 font-bold">€{selectedCarrier.perSMS.toFixed(2)}</div>
                   </div>
-                  
+
                   <div className="bg-red-100 p-3 rounded mt-3">
                     <strong>Real Examples:</strong>
                     <div className="mt-2 space-y-1">
@@ -240,7 +240,7 @@ const CountrySelector: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="text-xs text-gray-600 mt-2">
                     <strong>Source:</strong> {selectedCarrier.source}
                     <br />
@@ -265,7 +265,7 @@ const CountrySelector: React.FC = () => {
                     <div><strong>SMS:</strong></div>
                     <div className="text-green-600 font-bold">Included</div>
                   </div>
-                  
+
                   <div className="bg-green-100 p-3 rounded mt-3">
                     <strong>Same Examples with Ringo:</strong>
                     <div className="mt-2 space-y-1">
@@ -277,7 +277,7 @@ const CountrySelector: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="text-xs text-green-600 mt-2">
                     *Projected pricing for upcoming product. Actual plans may vary.
                   </div>
@@ -303,7 +303,7 @@ const CountrySelector: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div>
                   <h5 className="font-semibold text-green-800 mb-2">Ringo Costs:</h5>
                   <div className="space-y-2">
@@ -337,8 +337,8 @@ const CountrySelector: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-blue-600">
-                    {selectedCarrier.perMB > 0.039 ? 
-                      `${(((selectedCarrier.perMB * 1024 - 39.90) / (selectedCarrier.perMB * 1024)) * 100).toFixed(0)}%` : 
+                    {selectedCarrier.perMB > 0.039 ?
+                      `${(((selectedCarrier.perMB * 1024 - 39.90) / (selectedCarrier.perMB * 1024)) * 100).toFixed(0)}%` :
                       '0%'
                     }
                   </div>
@@ -348,7 +348,7 @@ const CountrySelector: React.FC = () => {
             </div>
 
             <div className="mt-6 text-center">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold px-8"
                 asChild
@@ -380,7 +380,7 @@ const CountrySelector: React.FC = () => {
         </Card>
         <Card className="text-center p-4 bg-purple-50">
           <div className="text-2xl font-bold text-purple-600">
-            {Math.max(...COMPETITOR_PRICING.map(c => 
+            {Math.max(...COMPETITOR_PRICING.map(c =>
               c.perMB > 0.039 ? ((c.perMB * 1024 - 39.90) / (c.perMB * 1024)) * 100 : 0
             )).toFixed(0)}%
           </div>

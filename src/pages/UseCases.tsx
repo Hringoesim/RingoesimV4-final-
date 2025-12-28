@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import * as React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -148,16 +148,16 @@ const FUN_FACTS = [
 
 const UseCases = () => {
   // Calculator state
-  const [userRegion, setUserRegion] = useState("EU");
-  const [homeCountry, setHomeCountry] = useState("DE");
-  const [destination, setDestination] = useState("ES");
-  const [tripLength, setTripLength] = useState([7]);
-  const [dataNeeded, setDataNeeded] = useState([10]);
-  const [callMinutes, setCallMinutes] = useState([60]);
-  const [currentCarrier, setCurrentCarrier] = useState("Deutsche Telekom");
-  const [hasRoamingPass, setHasRoamingPass] = useState(false);
-  const [animatedSavings, setAnimatedSavings] = useState(0);
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [userRegion, setUserRegion] = React.useState("EU");
+  const [homeCountry, setHomeCountry] = React.useState("DE");
+  const [destination, setDestination] = React.useState("ES");
+  const [tripLength, setTripLength] = React.useState([7]);
+  const [dataNeeded, setDataNeeded] = React.useState([10]);
+  const [callMinutes, setCallMinutes] = React.useState([60]);
+  const [currentCarrier, setCurrentCarrier] = React.useState("Deutsche Telekom");
+  const [hasRoamingPass, setHasRoamingPass] = React.useState(false);
+  const [animatedSavings, setAnimatedSavings] = React.useState(0);
+  const [isWaitlistOpen, setIsWaitlistOpen] = React.useState(false);
 
   // Get available carriers based on home country
   const getAvailableCarriers = () => {
@@ -226,7 +226,7 @@ const UseCases = () => {
   const costs = calculateCosts();
 
   // Animate savings counter
-  useEffect(() => {
+  React.useEffect(() => {
     const targetSavings = parseFloat(costs.savings);
     const duration = 1000; // 1 second
     const steps = 50;

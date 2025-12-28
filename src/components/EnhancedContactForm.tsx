@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import * as React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,21 +14,21 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [statusMessage, setStatusMessage] = useState('');
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-  const [submitProgress, setSubmitProgress] = useState(0);
-  const [isTyping, setIsTyping] = useState(false);
-  const [charCount, setCharCount] = useState(0);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = React.useState('');
+  const [fieldErrors, setFieldErrors] = React.useState<Record<string, string>>({});
+  const [submitProgress, setSubmitProgress] = React.useState(0);
+  const [isTyping, setIsTyping] = React.useState(false);
+  const [charCount, setCharCount] = React.useState(0);
 
   // Auto-save draft to localStorage
-  useEffect(() => {
+  React.useEffect(() => {
     const savedDraft = localStorage.getItem('ringo-contact-draft');
     if (savedDraft) {
       try {
@@ -42,23 +42,23 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
   }, []);
 
   // Save draft on form changes
-  useEffect(() => {
+  React.useEffect(() => {
     if (formData.name || formData.email || formData.message) {
       localStorage.setItem('ringo-contact-draft', JSON.stringify(formData));
     }
   }, [formData]);
 
   // Clear draft on successful submission
-  useEffect(() => {
+  React.useEffect(() => {
     if (submitStatus === 'success') {
       localStorage.removeItem('ringo-contact-draft');
     }
   }, [submitStatus]);
 
   // Real-time validation
-  const validateField = useCallback((field: string, value: string) => {
+  const validateField = React.useCallback((field: string, value: string) => {
     const errors: Record<string, string> = {};
-    
+
     switch (field) {
       case 'name':
         if (!value.trim()) errors.name = 'Name is required';
@@ -74,17 +74,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
         else if (value.trim().length > 1000) errors.message = 'Message must be less than 1000 characters';
         break;
     }
-    
+
     setFieldErrors(prev => ({ ...prev, [field]: errors[field] || '' }));
     return !errors[field];
   }, []);
 
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    
+
     setIsTyping(true);
     setTimeout(() => setIsTyping(false), 1000);
-    
+
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -99,7 +99,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
     setTimeout(() => validateField(name, value), 500);
   }, [validateField]);
 
-  const simulateProgress = useCallback(() => {
+  const simulateProgress = React.useCallback(() => {
     setSubmitProgress(0);
     const interval = setInterval(() => {
       setSubmitProgress(prev => {
@@ -115,11 +115,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Reset status
     setSubmitStatus('idle');
     setStatusMessage('');
-    
+
     // Validate all fields
     const nameValid = validateField('name', formData.name);
     const emailValid = validateField('email', formData.email);
@@ -159,7 +159,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
       if (data && data.success) {
         setSubmitStatus('success');
         setStatusMessage(data.message || 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
-        
+
         // Reset form
         setFormData({
           name: '',
@@ -178,7 +178,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
       setSubmitProgress(0);
       setSubmitStatus('error');
       setStatusMessage(
-        error.message || 
+        error.message ||
         'Failed to send your message. Please try again or email us directly at info@ringoesim.com'
       );
     } finally {
@@ -196,8 +196,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
     }
   };
 
-  const isFormValid = formData.name.trim() && formData.email.trim() && formData.message.trim() && 
-                     !fieldErrors.name && !fieldErrors.email && !fieldErrors.message;
+  const isFormValid = formData.name.trim() && formData.email.trim() && formData.message.trim() &&
+    !fieldErrors.name && !fieldErrors.email && !fieldErrors.message;
 
   return (
     <Card className={`w-full max-w-2xl mx-auto shadow-xl border-0 ${className}`}>
@@ -237,13 +237,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
               placeholder="Your full name"
               required
               disabled={isSubmitting}
-              className={`w-full transition-all duration-200 ${
-                fieldErrors.name 
-                  ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+              className={`w-full transition-all duration-200 ${fieldErrors.name
+                  ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
                   : formData.name && !fieldErrors.name
-                  ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
-                  : 'focus:ring-orange-500 focus:border-orange-500'
-              }`}
+                    ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
+                    : 'focus:ring-orange-500 focus:border-orange-500'
+                }`}
             />
             {fieldErrors.name && (
               <p className="text-sm text-red-600 flex items-center gap-1">
@@ -274,13 +273,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
               placeholder="your.email@example.com"
               required
               disabled={isSubmitting}
-              className={`w-full transition-all duration-200 ${
-                fieldErrors.email 
-                  ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+              className={`w-full transition-all duration-200 ${fieldErrors.email
+                  ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
                   : formData.email && !fieldErrors.email
-                  ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
-                  : 'focus:ring-orange-500 focus:border-orange-500'
-              }`}
+                    ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
+                    : 'focus:ring-orange-500 focus:border-orange-500'
+                }`}
             />
             {fieldErrors.email && (
               <p className="text-sm text-red-600 flex items-center gap-1">
@@ -316,13 +314,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
               required
               disabled={isSubmitting}
               rows={5}
-              className={`w-full resize-none transition-all duration-200 ${
-                fieldErrors.message 
-                  ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+              className={`w-full resize-none transition-all duration-200 ${fieldErrors.message
+                  ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
                   : formData.message && !fieldErrors.message
-                  ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
-                  : 'focus:ring-orange-500 focus:border-orange-500'
-              }`}
+                    ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
+                    : 'focus:ring-orange-500 focus:border-orange-500'
+                }`}
             />
             {fieldErrors.message && (
               <p className="text-sm text-red-600 flex items-center gap-1">
@@ -341,8 +338,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
           {/* Progress Bar */}
           {isSubmitting && (
             <div className="space-y-2">
-              <ProgressIndicator 
-                progress={submitProgress} 
+              <ProgressIndicator
+                progress={submitProgress}
                 message="Sending your message..."
                 showPercentage={false}
               />
@@ -374,11 +371,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
           <Button
             type="submit"
             disabled={isSubmitting || !isFormValid}
-            className={`w-full py-3 font-semibold transition-all duration-200 ${
-              isFormValid 
+            className={`w-full py-3 font-semibold transition-all duration-200 ${isFormValid
                 ? 'bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 hover:scale-[1.02] shadow-lg'
                 : 'bg-gray-300 cursor-not-allowed'
-            }`}
+              }`}
           >
             {isSubmitting ? (
               <>
@@ -409,8 +405,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
           <div className="text-center pt-4 border-t">
             <p className="text-sm text-gray-600">
               Or email us directly at{' '}
-              <a 
-                href="mailto:info@ringoesim.com" 
+              <a
+                href="mailto:info@ringoesim.com"
                 className="text-orange-600 hover:text-orange-700 font-medium transition-colors"
               >
                 info@ringoesim.com

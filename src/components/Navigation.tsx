@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import * as React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,13 +10,13 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const mobileMenuRef = React.useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const justClosedRef = useRef(false);
+  const justClosedRef = React.useRef(false);
 
   // Close mobile menu when clicking outside
-  useEffect(() => {
+  React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
         setIsMobileMenuOpen(false);
@@ -33,12 +33,12 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onWaitlistOpen }) 
   }, [isMobileMenuOpen]);
 
   // Close mobile menu on route change
-  useEffect(() => {
+  React.useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [currentPage]);
 
   // Check for URL-based waitlist trigger
-  useEffect(() => {
+  React.useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.get('join-waitlist') === 'true' && !justClosedRef.current) {
       // Clean URL without refresh

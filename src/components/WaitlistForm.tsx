@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -105,15 +105,15 @@ interface WaitlistFormProps {
 }
 
 export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     email: '',
     name: '',
     country: '',
     honeypot: '' // Spam protection
   });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isSuccess, setIsSuccess] = React.useState(false);
   const { toast } = useToast();
 
   const validateForm = () => {

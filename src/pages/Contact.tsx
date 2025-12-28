@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,16 +15,16 @@ import { WaitlistDialog } from "@/components/WaitlistDialog";
 import SEO from "@/components/SEO";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     fullName: "",
     email: "",
     inquiryType: "",
     subject: "",
     message: ""
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isSuccess, setIsSuccess] = React.useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = React.useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (field: string, value: string) => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,12 +9,12 @@ import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 
 const Login = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     email: "",
     password: ""
   });
-  const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

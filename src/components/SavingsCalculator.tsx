@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,9 +19,9 @@ const CARRIERS = [
 ];
 
 const SavingsCalculator: React.FC = () => {
-  const [selectedCarrier, setSelectedCarrier] = useState(CARRIERS[0]);
-  const [tripDays, setTripDays] = useState(7);
-  const [ringoOption, setRingoOption] = useState<'monthly' | 'daily'>('daily');
+  const [selectedCarrier, setSelectedCarrier] = React.useState(CARRIERS[0]);
+  const [tripDays, setTripDays] = React.useState(7);
+  const [ringoOption, setRingoOption] = React.useState<'monthly' | 'daily'>('daily');
 
   // Calculate costs
   const traditionalCost = selectedCarrier.dailyPass * tripDays;
