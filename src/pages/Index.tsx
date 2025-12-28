@@ -20,7 +20,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Ringo - Global eSIM for Voice & Data | One Number Everywhere"
+        title="Ringo - One Number. One Plan. Everywhere."
         description="Stay connected globally with Ringo. Voice-enabled travel eSIM for digital nomads. Unlimited data and calls in 180+ countries. Keep your existing number."
         canonical=""
         breadcrumbs={[
@@ -54,7 +54,7 @@ const Index = () => {
 
                 <div className="space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                    Global eSIM for Voice & Data. One Number Everywhere.
+                    One Number. One Plan. Everywhere.
                   </h1>
 
                   <p className="text-xl text-orange-100 max-w-lg leading-relaxed">
