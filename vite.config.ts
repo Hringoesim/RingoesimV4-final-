@@ -235,30 +235,12 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              // Bundle React and all React-dependent UI libraries together to prevent circular dependencies
-              if (id.includes('react') ||
-                id.includes('react-dom') ||
-                id.includes('react-router-dom') ||
-                id.includes('@radix-ui') ||
-                id.includes('lucide-react') ||
-                id.includes('class-variance-authority')) {
-                return 'vendor-react';
-              }
-              // Separate chunk for data/form utilities
-              if (id.includes('@tanstack/react-query') ||
-                id.includes('zod') ||
-                id.includes('react-hook-form')) {
-                return 'vendor-utils';
-              }
-              // All other dependencies
-              return 'vendor';
-            }
-          },
+          // Disabled manualChunks to prevent circular dependencies
+          // All vendor code will be bundled together
         },
       },
       chunkSizeWarningLimit: 1000,
     },
   }
 });
+
