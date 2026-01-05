@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
     title: string;
@@ -35,9 +36,14 @@ const SEO = ({
     faq,
     rating
 }: SEOProps) => {
+    const location = useLocation();
     const siteName = 'Ringo';
     const siteUrl = 'https://www.ringoesim.com';
-    const fullCanonical = canonical !== undefined ? `${siteUrl}${canonical}` : siteUrl;
+
+    // Auto-generate canonical if not provided, ensuring no trailing slash unless it's root
+    const path = canonical || location.pathname;
+    const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+    const fullCanonical = `${siteUrl}${cleanPath}`;
     const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
     // JSON-LD Structured Data

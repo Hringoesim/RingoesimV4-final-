@@ -1,4 +1,17 @@
 {
+    "redirects": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ringoesim.com"
+                }
+            ],
+            "destination": "https://www.ringoesim.com/:path*",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/((?!api/.*|.*\\..*).*)",
