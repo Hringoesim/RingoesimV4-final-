@@ -235,8 +235,20 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         output: {
-          // Disabled manualChunks to prevent circular dependencies
-          // All vendor code will be bundled together
+          manualChunks(id) {
+            // Core React vendor chunk
+            if (id.includes('node_modules/react') ||
+              id.includes('node_modules/react-dom') ||
+              id.includes('node_modules/react-router-dom')) {
+              return 'react-vendor';
+            }
+            // UI components vendor chunk (Lucide, Radix, etc)
+            if (id.includes('node_modules/lucide-react') ||
+              id.includes('node_modules/@radix-ui')) {
+              return 'ui-vendor';
+            }
+            // Other large dependencies can be split here if needed
+          }
         },
       },
       chunkSizeWarningLimit: 1000,

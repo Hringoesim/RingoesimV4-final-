@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-xs text-gray-500">© 2025 Ringo. All rights reserved.</p>
+            <p className="text-xs text-gray-500">© 2026 Ringo. All rights reserved.</p>
             <div className="flex items-center space-x-4">
               <a href="mailto:info@ringoesim.com" className="text-xs text-gray-500 hover:text-orange-500 transition-colors">
                 info@ringoesim.com

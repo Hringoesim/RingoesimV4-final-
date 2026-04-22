@@ -28,7 +28,7 @@ const SEO = ({
     title,
     description,
     canonical,
-    image = '/favicon.svg',
+    image = '/images/ringo-og-image.png',
     type = 'website',
     noindex = false,
     product,
@@ -38,7 +38,7 @@ const SEO = ({
 }: SEOProps) => {
     const location = useLocation();
     const siteName = 'Ringo';
-    const siteUrl = 'https://www.ringoesim.com';
+    const siteUrl = 'https://ringoesim.com';
 
     // Auto-generate canonical if not provided, ensuring no trailing slash unless it's root
     const path = canonical || location.pathname;
@@ -55,9 +55,9 @@ const SEO = ({
             "url": siteUrl,
             "logo": {
                 "@type": "ImageObject",
-                "url": `${siteUrl}/favicon.svg`,
-                "width": 512,
-                "height": 512
+                "url": `${siteUrl}/favicon-v2.png`,
+                "width": 96,
+                "height": 96
             },
             "sameAs": [
                 "https://twitter.com/ringoesim",
