@@ -93,7 +93,7 @@ serve(async (req) => {
           
           <div style="background: #f8f9fa; padding: 20px; text-align: center; color: #666; font-size: 14px;">
             <p>Questions? Reply to this email or contact us at info@ringoesim.com</p>
-            <p>© 2025 Ringo. All rights reserved.</p>
+            <p>© 2026 Ringo. All rights reserved.</p>
           </div>
         </div>
       `
@@ -125,7 +125,7 @@ serve(async (req) => {
           
           <div style="background: #f8f9fa; padding: 20px; text-align: center; color: #666; font-size: 14px;">
             <p>Questions? Reply to this email or contact us at info@ringoesim.com</p>
-            <p>© 2025 Ringo. All rights reserved.</p>
+            <p>© 2026 Ringo. All rights reserved.</p>
           </div>
         </div>
       `;
