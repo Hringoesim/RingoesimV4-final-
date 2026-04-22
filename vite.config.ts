@@ -233,25 +233,10 @@ export default defineConfig(({ mode }) => {
       ),
     },
     build: {
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            // Core React vendor chunk
-            if (id.includes('node_modules/react') ||
-              id.includes('node_modules/react-dom') ||
-              id.includes('node_modules/react-router-dom')) {
-              return 'react-vendor';
-            }
-            // UI components vendor chunk (Lucide, Radix, etc)
-            if (id.includes('node_modules/lucide-react') ||
-              id.includes('node_modules/@radix-ui')) {
-              return 'ui-vendor';
-            }
-            // Other large dependencies can be split here if needed
-          }
-        },
-      },
-      chunkSizeWarningLimit: 1000,
+      // NOTE: Do NOT re-enable manualChunks / code splitting.
+      // It causes circular dependency failures on Vercel that prevent React from
+      // mounting, leaving the page stuck on the static "Loading Ringo..." fallback.
+      chunkSizeWarningLimit: 2000,
     },
   }
 });
