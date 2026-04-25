@@ -154,31 +154,22 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
     setIsLoading(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('waitlist_complete_2025_11_26_19_00', {
-        body: {
+      const { error } = await supabase.from('waitlist').insert([
+        {
           email: formData.email,
           country: formData.country,
-          name: formData.name, // Pass name if the function supports it, otherwise it's just extra data
-          type: 'waitlist'
+          name: formData.name,
         }
-      });
+      ]);
 
       if (error) {
         throw error;
       }
 
-      if (data?.email_status?.user_email === 'failed') {
-        toast({
-          title: "Joined Waitlist",
-          description: "You've been added to the list, but we couldn't send the confirmation email. Please check your spam folder or contact us if needed.",
-          variant: "default", // Or "warning" if available, but default is safer
-        });
-      } else {
-        toast({
-          title: "Welcome to the waitlist!",
-          description: "Check your email for confirmation. We'll be in touch soon!",
-        });
-      }
+      toast({
+        title: "Welcome to the waitlist!",
+        description: "You've been added to our list. We'll be in touch soon!",
+      });
 
       // Google Ads Conversion Event
       if (typeof window.gtag !== 'undefined') {
