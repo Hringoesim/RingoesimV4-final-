@@ -183,7 +183,7 @@ const Index = () => {
               </Card>
 
               {/* Nomad */}
-              <Card className="bg-white border-2 border-orange-500 relative scale-105 shadow-xl h-full flex flex-col">
+              <Card className="bg-white border-2 border-orange-500 relative md:scale-105 shadow-xl h-full flex flex-col">
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
                   <Star className="h-3 w-3 mr-1" />
                   Most Popular

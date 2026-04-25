@@ -167,7 +167,7 @@ const HowItWorks = () => {
               <p className="text-xl text-gray-600">Trusted by travelers worldwide</p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-orange-600 mb-2">180+</div>
                 <div className="text-gray-600">Countries Covered</div>

@@ -179,7 +179,7 @@ const ESIMUSA = () => {
                             </Card>
 
                             {/* Nomad Plan */}
-                            <Card className="card-elegant relative ring-2 ring-primary scale-105 shadow-xl z-10 h-full flex flex-col">
+                            <Card className="card-elegant relative ring-2 ring-primary md:scale-105 shadow-xl z-10 h-full flex flex-col">
                                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
                                     <Star className="h-3 w-3 mr-1" />
                                     Most Popular
