@@ -114,9 +114,9 @@ const ESIMEurope = () => {
                             <p className="text-xl text-gray-600">Simple, transparent pricing for global connectivity</p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 md:grid md:grid-cols-4 md:overflow-visible md:snap-none md:mx-auto md:px-0 max-w-7xl">
                             {/* Day Pass */}
-                            <Card className="card-elegant relative h-full flex flex-col">
+                            <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 card-elegant relative h-full flex flex-col">
                                 <CardHeader className="text-center pb-4 flex-none">
                                     <CardTitle className="text-2xl font-semibold">Day Pass</CardTitle>
                                     <div className="mt-4">
@@ -147,7 +147,7 @@ const ESIMEurope = () => {
                             </Card>
 
                             {/* Week Explorer Plan */}
-                            <Card className="card-elegant relative h-full flex flex-col">
+                            <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 card-elegant relative h-full flex flex-col">
                                 <CardHeader className="text-center pb-4 flex-none">
                                     <CardTitle className="text-2xl font-semibold">Week Explorer</CardTitle>
                                     <div className="mt-4">
@@ -177,7 +177,7 @@ const ESIMEurope = () => {
                             </Card>
 
                             {/* Nomad Plan */}
-                            <Card className="card-elegant relative ring-2 ring-primary md:scale-105 shadow-xl z-10 h-full flex flex-col">
+                            <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 card-elegant relative ring-2 ring-primary md:scale-105 shadow-xl z-10 h-full flex flex-col">
                                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
                                     <Star className="h-3 w-3 mr-1" />
                                     Most Popular
@@ -215,7 +215,7 @@ const ESIMEurope = () => {
                             </Card>
 
                             {/* Business Pro */}
-                            <Card className="card-elegant relative h-full flex flex-col">
+                            <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 card-elegant relative h-full flex flex-col">
                                 <CardHeader className="text-center pb-4 flex-none">
                                     <CardTitle className="text-2xl font-semibold">Business Pro</CardTitle>
                                     <div className="mt-4">

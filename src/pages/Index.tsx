@@ -121,9 +121,9 @@ const Index = () => {
               <p className="text-xl text-gray-600">Simple, transparent pricing for global connectivity</p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 md:grid md:grid-cols-4 md:overflow-visible md:snap-none md:mx-auto md:px-0 max-w-7xl">
               {/* Day Pass */}
-              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
+              <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
                 <CardContent className="p-6 text-center flex-1 flex flex-col">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Day Pass</h3>
@@ -153,7 +153,7 @@ const Index = () => {
               </Card>
 
               {/* Week Explorer */}
-              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
+              <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
                 <CardContent className="p-6 text-center flex-1 flex flex-col">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Week Explorer</h3>
@@ -183,7 +183,7 @@ const Index = () => {
               </Card>
 
               {/* Nomad */}
-              <Card className="bg-white border-2 border-orange-500 relative md:scale-105 shadow-xl h-full flex flex-col">
+              <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 bg-white border-2 border-orange-500 relative md:scale-105 shadow-xl h-full flex flex-col">
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
                   <Star className="h-3 w-3 mr-1" />
                   Most Popular
@@ -221,7 +221,7 @@ const Index = () => {
               </Card>
 
               {/* Business Pro */}
-              <Card className="bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
+              <Card className="min-w-[85vw] sm:min-w-[320px] snap-center md:min-w-0 bg-white border-2 border-gray-200 hover:border-orange-300 transition-all duration-300 h-full flex flex-col">
                 <CardContent className="p-6 text-center flex-1 flex flex-col">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Business Pro</h3>
